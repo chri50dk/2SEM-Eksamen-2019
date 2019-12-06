@@ -22,9 +22,23 @@ const loadArray = [{
 
 document.addEventListener("DOMContentLoaded", start);
 
+
+
 function start() {
     loadContent(loadArray[loadIterator]);
     setTimeout(loadDone, 2000);
+
+    window.addEventListener("scroll", function () {
+        var elementTarget = document.querySelectorAll(".headlines");
+
+        elementTarget.forEach(headline => {
+            if (window.scrollY - window.innerHeight > headline.offsetTop) {
+                console.log("SCROLL PAST");
+                headline.style.position = "sticky";
+            }
+        });
+    })
+
 }
 
 async function loadContent(contentToLoad) {
@@ -70,8 +84,8 @@ function showVenues(content) {
     content.forEach(event => {
         const klon = temp.cloneNode(true).content;
 
+        //Vi starter med at formattere datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
         let datePart, year, month, day;
-
         formatDate(event.dato);
 
         function formatDate(input) {
@@ -85,15 +99,12 @@ function showVenues(content) {
 
         klon.querySelector(".event h2").textContent = event.title.rendered;
 
-
+        //Her laver vi datoen om med getTime() funktionen, som regner tiden ud mellem midnat den 1. januar 1970 og den dato man vælger. Derved kan vi sammenligne event dato med dagens dato
         let eventDate = new Date(event.dato).getTime();
-
-
 
         if (todayDateFormat > eventDate) {
             console.log(event.title.rendered);
             klon.querySelector(".event h3").textContent = "";
-
 
             destPast.appendChild(klon);
         } else {
@@ -102,7 +113,7 @@ function showVenues(content) {
     })
 }
 
-//function loadDone() {
-//    console.log("loadDone");
-//    document.querySelector("#loader").style.display = "none";
-//}
+function loadDone() {
+    console.log("loadDone");
+
+}
