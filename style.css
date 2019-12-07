@@ -1,11 +1,15 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    --purple: #A510FF;
+    --dark-purple: #0E0118;
+    --green: #E2FF10;
+    --pink: #FF10E2;
 }
 
 body {
     margin: 0;
-    background-color: black;
+    background-color: var(--dark-purple);
 }
 
 html {
@@ -31,11 +35,11 @@ nav a {
     font-size: 2rem;
     margin-left: 15px;
     font-family: 'Bebas Neue', sans-serif;
-    color: black;
+    color: var(--dark-purple);
 }
 
 nav a:hover {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--dark-purple);
 }
 
 #splash {
@@ -72,7 +76,7 @@ section {
 }
 
 .headlines {
-    color: white;
+    color: var(--pink);
     font-size: 10rem;
     margin: 0 0 30px 0;
     writing-mode: vertical-lr;
@@ -80,6 +84,10 @@ section {
     position: absolute;
     top: 10px;
     float: left;
+}
+
+.green {
+    color: var(--green);
 }
 
 p {
