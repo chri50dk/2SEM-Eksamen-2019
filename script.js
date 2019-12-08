@@ -1,6 +1,6 @@
 const mixUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/mixes";
 const packageUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/packages";
-const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue";
+const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue?per_page=100";
 
 let loadIterator = 0;
 
@@ -84,34 +84,63 @@ function showVenues(content) {
     content.forEach(event => {
         const klon = temp.cloneNode(true).content;
 
+        klon.querySelector(".event h2").textContent = event.title.rendered;
+
+        klon.querySelector(".event h3 + h3").textContent = event.start_time + " - " + event.end_time;
+
+
         //Vi starter med at formattere datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
         let datePart, year, month, day;
         formatDate(event.dato);
 
         function formatDate(input) {
             datePart = input.match(/\d+/g);
-            year = datePart[0].substring(2); // get only two digits
+            year = datePart[0]; // get only two digits
             month = datePart[1];
             day = datePart[2];
 
-            klon.querySelector(".event h3").textContent = day + '/' + month + '/' + '20' + year;
+            klon.querySelector(".event h3").textContent = day + '/' + month + '/' + year;
         }
-
-        klon.querySelector(".event h2").textContent = event.title.rendered;
 
         //Her laver vi datoen om med getTime() funktionen, som regner tiden ud mellem midnat den 1. januar 1970 og den dato man vælger. Derved kan vi sammenligne event dato med dagens dato
         let eventDate = new Date(event.dato).getTime();
 
         if (todayDateFormat > eventDate) {
             console.log(event.title.rendered);
-            klon.querySelector(".event h3").textContent = "";
+            //            klon.querySelector(".event h3").textContent = "";
+            pastEvents.push(event.title.rendered);
 
-            destPast.appendChild(klon);
         } else {
             destComing.appendChild(klon);
         }
     })
+
+
+
+    console.log(pastEvents);
+    removeDup(pastEvents);
+
+
+
+    function removeDup(arr) {
+        arr.forEach((item, index) => {
+            if (arr.indexOf(item) == index) result.push(item)
+        });
+        console.log(result);
+    }
+
+    result.forEach(pastEvent => {
+        const klon = temp.cloneNode(true).content;
+        klon.querySelector(".event h2").textContent = pastEvent;
+        destPast.appendChild(klon);
+    })
+
+
 }
+
+let result = [];
+
+let pastEvents = [];
 
 function loadDone() {
     console.log("loadDone");
