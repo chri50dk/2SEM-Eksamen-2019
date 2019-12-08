@@ -2,13 +2,16 @@ const mixUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v
 const packageUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/packages";
 const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue?per_page=100";
 
-let loadIterator = 0;
+let result = [];
+let pastEvents = [];
 
+//Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
 var today = new Date();
 var todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
 var todayDateFormat = new Date(todayDate).getTime();
 
+
+//Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const loadArray = [{
     theUrl: mixUrl,
     theFunction: showMixes
@@ -20,15 +23,16 @@ const loadArray = [{
     theFunction: showVenues
 }];
 
+let loadIterator = 0;
+
 document.addEventListener("DOMContentLoaded", start);
 
-
-
 function start() {
+    //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
-    setTimeout(loadDone, 2000);
 
-    window.addEventListener("scroll", function () {
+    //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
+    window.addEventListener("scroll", () => {
         var elementTarget = document.querySelectorAll(".headlines");
 
         elementTarget.forEach(headline => {
@@ -39,12 +43,13 @@ function start() {
         });
     })
 
+    setTimeout(loadDone, 2000);
 }
 
 async function loadContent(contentToLoad) {
     console.log("loadContent");
 
-    //Henter data i filen som er defineret ovenfor
+    //I denne funktion loader vi alt JSON data fra WordPress, og kalder den valgte funktionen (i arrayet), med indholdet som parameter.
     let jsonData = await fetch(contentToLoad.theUrl);
     let content;
 
@@ -73,6 +78,7 @@ function showVenues(content) {
     const destComing = document.querySelector("#coming_events");
     const destPast = document.querySelector("#past_events");
 
+    //Her sorteres arrayet efter dato, så ligemeget hvilken rækkefølge events bliver oprettet i, bliver de sorteret her.
     content.sort((a, b) => {
         if (a.dato > b.dato) {
             return 1
@@ -81,46 +87,42 @@ function showVenues(content) {
         }
     })
 
+    //Her køres hvert event igennem forEach loopet, som viser dem i DOM'en.
     content.forEach(event => {
         const klon = temp.cloneNode(true).content;
 
         klon.querySelector(".event h2").textContent = event.title.rendered;
-
         klon.querySelector(".event h3 + h3").textContent = event.start_time + " - " + event.end_time;
 
-
-        //Vi starter med at formattere datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
+        //Her formaterer vi datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
         let datePart, year, month, day;
         formatDate(event.dato);
 
         function formatDate(input) {
+            //Her dekonstruerer vi datoen, så vi får den i formatet (yyyy, mm, dd), og derefter sætter vi year, month og day til at være lig med de respektive pladser, hvorefter vi kan skrive datoen i DOM'en som vi vil.
             datePart = input.match(/\d+/g);
-            year = datePart[0]; // get only two digits
+            year = datePart[0];
             month = datePart[1];
             day = datePart[2];
 
             klon.querySelector(".event h3").textContent = day + '/' + month + '/' + year;
         }
 
-        //Her laver vi datoen om med getTime() funktionen, som regner tiden ud mellem midnat den 1. januar 1970 og den dato man vælger. Derved kan vi sammenligne event dato med dagens dato
+        //Her laver vi datoen om med getTime() funktionen, som giver os tiden mellem den 1. januar 1970 kl. 00:00 og den dato vi vælger, i millisekunder. Derved kan vi sammenligne eventets dato med dagens dato, og pushe de gamle events ind i sit eget array.
+
         let eventDate = new Date(event.dato).getTime();
 
         if (todayDateFormat > eventDate) {
             console.log(event.title.rendered);
-            //            klon.querySelector(".event h3").textContent = "";
             pastEvents.push(event.title.rendered);
-
         } else {
             destComing.appendChild(klon);
         }
     })
 
+    //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
 
-
-    console.log(pastEvents);
     removeDup(pastEvents);
-
-
 
     function removeDup(arr) {
         arr.forEach((item, index) => {
@@ -129,18 +131,13 @@ function showVenues(content) {
         console.log(result);
     }
 
+    //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en.
     result.forEach(pastEvent => {
         const klon = temp.cloneNode(true).content;
         klon.querySelector(".event h2").textContent = pastEvent;
         destPast.appendChild(klon);
     })
-
-
 }
-
-let result = [];
-
-let pastEvents = [];
 
 function loadDone() {
     console.log("loadDone");
