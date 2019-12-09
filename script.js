@@ -1,9 +1,10 @@
-const mixUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/mixes";
-const packageUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/packages";
 const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue?per_page=100";
+const aboutUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/about/58";
 
 let result = [];
 let pastEvents = [];
+let eventCount;
+
 const destComing = document.querySelector("#coming_events");
 
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
@@ -16,11 +17,8 @@ let logo = document.querySelector(".logo");
 
 //Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const loadArray = [{
-    theUrl: mixUrl,
-    theFunction: showMixes
-}, {
-    theUrl: packageUrl,
-    theFunction: showPackages
+    theUrl: aboutUrl,
+    theFunction: showAbout
 }, {
     theUrl: venueUrl,
     theFunction: showVenues
@@ -69,15 +67,12 @@ async function loadContent(contentToLoad) {
     }
 }
 
-function showMixes(content) {
+function showAbout(content) {
     console.log(content);
-}
 
-function showPackages(content) {
-    console.log(content);
+    document.querySelector("#about p").textContent = content.about_1;
+    document.querySelector("#about p + p").textContent = content.about_2;
 }
-
-let eventCount;
 
 
 function showVenues(content) {
@@ -125,7 +120,6 @@ function showVenues(content) {
         let eventDate = new Date(event.dato).getTime();
 
         if (todayDateFormat > eventDate) {
-            console.log(event.title.rendered);
             pastEvents.push(event.title.rendered);
         } else {
             destComing.appendChild(klon);
@@ -165,7 +159,6 @@ function loadMore() {
         document.querySelector("#load_more").style.display = "none";
     })
 }
-
 
 
 function loadDone() {
