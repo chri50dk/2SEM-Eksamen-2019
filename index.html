@@ -30,10 +30,10 @@
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
+            <div id="video_container">
+                <iframe title="video for koga center københavn" id="video" src="https://www.youtube.com/embed/wfocErvNvzw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
         </section>
 
 
@@ -58,6 +58,52 @@
 
             <h1 class="headlines">CONTACT</h1>
 
+            <select name="contact_type" id="contact_type">
+                <option value="">-</option>
+                <option value="booking">BOOKING</option>
+                <option value="business">BUSINESS INQUIRY</option>
+            </select>
+
+
+            <form method="post" name="contact_business" id="contact_business" action="contact_business.php">
+
+                <label for="business">
+                    <h3>BUSINESS NAME</h3>
+                </label>
+                <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
+
+                <input type="submit" value="SEND">
+
+            </form>
+
+            <form method="post" name="contact_booking" id="contact_booking" action="contact_booking.php">
+
+                <label for="venue">
+                    <h3>VENUE</h3>
+                </label>
+                <input type="text" id="venue" name="venue" placeholder="VENUE">
+
+                <input type="submit" value="SEND">
+
+            </form>
+            <!--
+<label for="E-mail">
+    <h3>E-mail</h3>
+</label>
+<input type="email" id="email" name="E-mail" placeholder="E-mail">
+
+<label for="Telefonnr.">
+    <h3>Telefonnr.</h3>
+</label>
+<input type="tel" id="phone" name="Telefonnr." placeholder="Telefonnr.">
+
+<label for="Dato">
+    <h3>Dato</h3>
+</label>
+<input type="date" name="Dato" id="date">-->
+
+
+
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
         </section>
@@ -67,4 +113,6 @@
 
 
     <script src="script.js"></script>
-</body></html>
+</body>
+
+</html>

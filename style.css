@@ -50,7 +50,7 @@ nav a:hover {
 
 h1 {
     color: black;
-    font-size: 13rem;
+    font-size: 10rem;
     font-family: 'Bebas Neue', sans-serif;
     position: absolute;
 }
@@ -60,11 +60,12 @@ h2 {
 }
 
 #splash h1:nth-child(1) {
+    top: 100px;
     left: 70px;
 }
 
 #splash h1:nth-child(2) {
-    top: 110px;
+    top: 200px;
     left: 30px;
 }
 
@@ -97,6 +98,28 @@ p {
     font-family: sans-serif;
 }
 
+#video_container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-left: 120px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 540px;
+    max-height: 300px;
+}
+
+/* EVENTS */
 #coming_events {
     display: grid;
     grid-template-columns: 1fr;
@@ -148,6 +171,15 @@ p {
 .event h3 {
     font-size: 2rem;
     margin: 5px 0;
+}
+
+/* CONTACT */
+#contact_booking {
+    display: none;
+}
+
+#contact_business {
+    display: none;
 }
 
 #loader {

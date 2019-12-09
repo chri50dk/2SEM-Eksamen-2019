@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", start);
 function start() {
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
+    bookingOption();
 
     //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
     window.addEventListener("scroll", () => {
@@ -122,6 +123,8 @@ function showVenues(content) {
 
     //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
 
+    //Kilde: https://stackoverflow.com/questions/54757902/remove-duplicates-in-an-array-using-foreach
+
     removeDup(pastEvents);
 
     function removeDup(arr) {
@@ -141,5 +144,28 @@ function showVenues(content) {
 
 function loadDone() {
     console.log("loadDone");
+}
+
+function bookingOption() {
+    console.log("bookingOption");
+    let picker = document.querySelector("#contact_type");
+    let bookingForm = document.querySelector("#contact_booking");
+    let businessForm = document.querySelector("#contact_business");
+
+    picker.addEventListener("change", () => {
+        if (picker.value === "booking") {
+            console.log("booking");
+            bookingForm.style.display = "block";
+            businessForm.style.display = "none";
+        } else if (picker.value === "business") {
+            console.log("business");
+            bookingForm.style.display = "none";
+            businessForm.style.display = "block";
+        } else {
+            console.log("none");
+            bookingForm.style.display = "none";
+            businessForm.style.display = "none";
+        }
+    })
 
 }
