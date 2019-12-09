@@ -10,6 +10,8 @@ var today = new Date();
 var todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var todayDateFormat = new Date(todayDate).getTime();
 
+let logo = document.querySelector(".logo");
+
 
 //Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const loadArray = [{
@@ -44,7 +46,22 @@ function start() {
         });
     })
 
-    setTimeout(loadDone, 2000);
+    changeLogo();
+}
+
+function changeLogo() {
+    logo.src = "img/logo_yellow.svg";
+    setTimeout(changeLogo2, 10);
+}
+
+function changeLogo2() {
+    logo.src = "img/logo_blue.svg";
+    setTimeout(changeLogo3, 10);
+}
+
+function changeLogo3() {
+    logo.src = "img/logo_purple.svg";
+    setTimeout(changeLogo, 10);
 }
 
 async function loadContent(contentToLoad) {
@@ -72,11 +89,15 @@ function showPackages(content) {
     console.log(content);
 }
 
+let eventCount = 0;
+
+
 function showVenues(content) {
     console.log(content);
 
     const temp = document.querySelector("#events template");
-    const destComing = document.querySelector("#coming_events");
+    const destComingLeft = document.querySelector("#grid_left");
+    const destComingRight = document.querySelector("#grid_right");
     const destPast = document.querySelector("#past_events");
 
     //Her sorteres arrayet efter dato, så ligemeget hvilken rækkefølge events bliver oprettet i, bliver de sorteret her.
@@ -90,9 +111,10 @@ function showVenues(content) {
 
     //Her køres hvert event igennem forEach loopet, som viser dem i DOM'en.
     content.forEach(event => {
+        eventCount++;
         const klon = temp.cloneNode(true).content;
 
-        klon.querySelector(".event h2").textContent = event.title.rendered;
+        klon.querySelector(".event h2 + h2").textContent = event.title.rendered;
         klon.querySelector(".event h3 + h3").textContent = event.start_time + " - " + event.end_time;
 
         //Her formaterer vi datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
@@ -116,8 +138,10 @@ function showVenues(content) {
         if (todayDateFormat > eventDate) {
             console.log(event.title.rendered);
             pastEvents.push(event.title.rendered);
+        } else if (eventCount % 2 === 0) {
+            destComingRight.appendChild(klon);
         } else {
-            destComing.appendChild(klon);
+            destComingLeft.appendChild(klon);
         }
     })
 
@@ -135,16 +159,29 @@ function showVenues(content) {
     }
 
     //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en.
-    result.forEach(pastEvent => {
-        const klon = temp.cloneNode(true).content;
-        klon.querySelector(".event h2").textContent = pastEvent;
-        destPast.appendChild(klon);
-    })
+//    result.forEach(pastEvent => {
+            //        const klon = temp.cloneNode(true).content;
+            //        klon.querySelector(".event h2 + h2").textContent = pastEvent;
+            //        destPast.appendChild(klon);
+            //    })
 }
 
 function loadDone() {
     console.log("loadDone");
+
+
+    let logoContatiner = document.querySelector("#loader");
+    let containerWrapper = document.querySelector("#loader_wrapper");
+
+    logo.classList.add("logo_loaded");
+    logoContatiner.classList.add("loader_loaded");
+    logoContatiner.style.backgroundColor = "transparent";
+    containerWrapper.classList.add("wrapper_loaded");
 }
+
+
+
+
 
 function bookingOption() {
     console.log("bookingOption");
