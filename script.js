@@ -4,6 +4,7 @@ const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp
 
 let result = [];
 let pastEvents = [];
+const destComing = document.querySelector("#coming_events");
 
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
 var today = new Date();
@@ -33,6 +34,7 @@ function start() {
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
     bookingOption();
+    loadMore();
 
     //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
     window.addEventListener("scroll", () => {
@@ -84,7 +86,7 @@ function showVenues(content) {
     eventCount = 0;
 
     const temp = document.querySelector("#events template");
-    const destComing = document.querySelector("#coming_events");
+
     const destPast = document.querySelector("#past_events");
 
     //Her sorteres arrayet efter dato, så ligemeget hvilken rækkefølge events bliver oprettet i, bliver de sorteret her.
@@ -152,6 +154,15 @@ function showVenues(content) {
         //        klon.querySelector(".event h2 + h2").textContent = pastEvent;
         //        destPast.appendChild(klon);
         //    })
+    })
+}
+
+function loadMore() {
+    console.log("loadMore");
+    document.querySelector("#load_more").addEventListener("click", () => {
+        console.log("CLICK LOAD MORE");
+        destComing.classList.add("load_more_toggle");
+        document.querySelector("#load_more").style.display = "none";
     })
 }
 
