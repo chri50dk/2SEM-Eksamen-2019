@@ -157,19 +157,10 @@ p {
 #coming_events {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 30px;
-    width: calc(100vw - 400px);
-    margin-left: 200px;
+    width: calc(100vw - 120px);
+    margin-left: 120px;
 }
 
-.events_h2 {
-    grid-column: 1/2;
-    grid-row: 1;
-    font-size: 5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    margin: 20px 0 5px 0;
-    color: white;
-}
 
 #past_events {
     display: grid;
@@ -196,16 +187,31 @@ p {
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
     position: relative;
+    margin-top: 80px;
 }
+
+.event:nth-child(1) {
+    margin-top: 30px;
+}
+
 
 .venue {
     font-size: 3rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .event h3 {
     font-size: 2rem;
     margin: 5px 0;
+}
+
+.events_h2 {
+    grid-column: 1/2;
+    grid-row: 1;
+    font-size: 5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 20px 0 5px 0;
+    color: white;
 }
 
 .upcoming {
@@ -229,19 +235,24 @@ p {
 }
 
 @media only screen and (min-width: 840px) {
+    #events h1 {
+        margin-top: -170px;
+    }
+
     #coming_events {
         grid-template-columns: 1fr 1fr;
-        margin-right: 120px;
+        margin: 180px 180px 0 180px;
+        grid-gap: 50px;
+        width: calc(100vw - 360px);
     }
 
-    #grid_right {
-        margin-top: 150px;
+    .event:nth-child(even) {
+        margin-top: 80px;
     }
 
-    .event {
-        margin-bottom: 100px;
+    .event:nth-child(odd) {
+        margin-top: -150px;
     }
-
 }
 
 @media only screen and (min-width: 1200px) {}

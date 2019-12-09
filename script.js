@@ -46,23 +46,9 @@ function start() {
         });
     })
 
-    changeLogo();
 }
 
-function changeLogo() {
-    logo.src = "img/logo_yellow.svg";
-    setTimeout(changeLogo2, 10);
-}
 
-function changeLogo2() {
-    logo.src = "img/logo_blue.svg";
-    setTimeout(changeLogo3, 10);
-}
-
-function changeLogo3() {
-    logo.src = "img/logo_purple.svg";
-    setTimeout(changeLogo, 10);
-}
 
 async function loadContent(contentToLoad) {
     console.log("loadContent");
@@ -89,15 +75,16 @@ function showPackages(content) {
     console.log(content);
 }
 
-let eventCount = 0;
+let eventCount;
 
 
 function showVenues(content) {
     console.log(content);
 
+    eventCount = 0;
+
     const temp = document.querySelector("#events template");
-    const destComingLeft = document.querySelector("#grid_left");
-    const destComingRight = document.querySelector("#grid_right");
+    const destComing = document.querySelector("#coming_events");
     const destPast = document.querySelector("#past_events");
 
     //Her sorteres arrayet efter dato, så ligemeget hvilken rækkefølge events bliver oprettet i, bliver de sorteret her.
@@ -138,33 +125,37 @@ function showVenues(content) {
         if (todayDateFormat > eventDate) {
             console.log(event.title.rendered);
             pastEvents.push(event.title.rendered);
-        } else if (eventCount % 2 === 0) {
-            destComingRight.appendChild(klon);
         } else {
-            destComingLeft.appendChild(klon);
+            destComing.appendChild(klon);
         }
+
+
+
+
+
+        //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
+
+        //Kilde: https://stackoverflow.com/questions/54757902/remove-duplicates-in-an-array-using-foreach
+
+        removeDup(pastEvents);
+
+        function removeDup(arr) {
+            arr.forEach((item, index) => {
+                if (arr.indexOf(item) == index) result.push(item)
+            });
+
+        }
+
+        //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en.
+        //    result.forEach(pastEvent => {
+        //        const klon = temp.cloneNode(true).content;
+        //        klon.querySelector(".event h2 + h2").textContent = pastEvent;
+        //        destPast.appendChild(klon);
+        //    })
     })
-
-    //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
-
-    //Kilde: https://stackoverflow.com/questions/54757902/remove-duplicates-in-an-array-using-foreach
-
-    removeDup(pastEvents);
-
-    function removeDup(arr) {
-        arr.forEach((item, index) => {
-            if (arr.indexOf(item) == index) result.push(item)
-        });
-        console.log(result);
-    }
-
-    //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en.
-//    result.forEach(pastEvent => {
-            //        const klon = temp.cloneNode(true).content;
-            //        klon.querySelector(".event h2 + h2").textContent = pastEvent;
-            //        destPast.appendChild(klon);
-            //    })
 }
+
+
 
 function loadDone() {
     console.log("loadDone");
@@ -178,9 +169,6 @@ function loadDone() {
     logoContatiner.style.backgroundColor = "transparent";
     containerWrapper.classList.add("wrapper_loaded");
 }
-
-
-
 
 
 function bookingOption() {
