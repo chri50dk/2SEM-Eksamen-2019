@@ -84,7 +84,7 @@ function showVenues(content) {
 
     const upcomingTemp = document.querySelector("#upcoming_temp");
     const venueTemp = document.querySelector("#venue_temp");
-    const destComing = document.querySelector("#coming_events_big");
+    const destComing = document.querySelector("#coming_events");
     const destComingScroll = document.querySelector("#coming_events_scroll");
 
     const destPast = document.querySelector("#past_events");
@@ -130,6 +130,10 @@ function showVenues(content) {
         } else if (comingEventCount < 3) {
             comingEventCount++;
             console.log(event.title.rendered + comingEventCount);
+            if (comingEventCount === 1) {
+                klon.querySelector(".event").id = "first_event";
+            }
+
             destComing.appendChild(klon);
         } else {
             klon.querySelector(".event h2 + h2").textContent = day + '/' + month + '/' + year;
