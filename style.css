@@ -1,9 +1,11 @@
+/****GENRELLE INDSTILLINGER****/
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
     --purple: #A510FF;
     --dark-purple: #0E0118;
-    --green: #E2FF10;
+    --yellow: #E2FF10;
     --pink: #FF10E2;
 }
 
@@ -15,6 +17,50 @@ body {
 html {
     font-size: 62.5%;
 }
+
+h1 {
+    color: black;
+    font-size: 10rem;
+    font-family: 'Bebas Neue', sans-serif;
+    position: absolute;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-left: 120px;
+    font-size: 1.6rem;
+}
+
+section {
+    position: relative;
+    width: 100vw;
+    min-height: 530px;
+    padding-right: 20px;
+}
+
+.headlines {
+    color: var(--pink);
+    font-size: 10rem;
+    margin: 0 0 30px 0;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    position: absolute;
+    top: 10px;
+    float: left;
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+/****GENRELLE INDSTILLINGER SLUT****/
+
+/****MENU****/
 
 header {
     width: 100vw;
@@ -42,10 +88,28 @@ nav a:hover {
     border-bottom: 2px solid white;
 }
 
+/****MENU SLUT****/
+
+/****SPLASH****/
+
 #splash {
     width: 100vw;
     height: 100vh;
 }
+
+#splash h1:nth-child(1) {
+    top: 100px;
+    left: 70px;
+}
+
+#splash h1:nth-child(2) {
+    top: 200px;
+    left: 30px;
+}
+
+/****SPLASH SLUT****/
+
+/****LOGO + LOADER****/
 
 #loader_wrapper {
     transition: 3s all;
@@ -82,78 +146,10 @@ nav a:hover {
     transform: translateX(120px);
 }
 
-h1 {
-    color: black;
-    font-size: 10rem;
-    font-family: 'Bebas Neue', sans-serif;
-    position: absolute;
-}
+/****LOGO + LOADER SLUT****/
 
-h2 {
-    font-family: 'Bebas Neue', sans-serif;
-}
+/****EVENTS SEKTION****/
 
-#splash h1:nth-child(1) {
-    top: 100px;
-    left: 70px;
-}
-
-#splash h1:nth-child(2) {
-    top: 200px;
-    left: 30px;
-}
-
-section {
-    position: relative;
-    width: 100vw;
-    min-height: 530px;
-    padding-right: 20px;
-}
-
-.headlines {
-    color: var(--pink);
-    font-size: 10rem;
-    margin: 0 0 30px 0;
-    writing-mode: vertical-lr;
-    transform: rotate(-180deg);
-    position: absolute;
-    top: 10px;
-    float: left;
-}
-
-.green {
-    color: var(--green);
-}
-
-p {
-    color: white;
-    margin-left: 120px;
-    font-size: 1.6rem;
-    font-family: sans-serif;
-}
-
-#video_container {
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-    margin-left: 120px;
-    margin-right: -20px;
-    margin-bottom: 20px;
-}
-
-#video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    max-width: 540px;
-    max-height: 300px;
-}
-
-/* EVENTS */
 #events h1 {
     margin-top: 40px;
 }
@@ -164,20 +160,26 @@ p {
     width: calc(100vw - 120px);
     margin-left: 120px;
 
-
     overflow: hidden;
     position: relative;
 }
 
 #load_more {
     width: 100%;
-    height: 50px;
+    height: 80px;
     background: rgb(2, 0, 36);
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(14, 1, 24, 1) 16%, rgba(0, 212, 255, 0) 100%);
     z-index: 100;
     position: absolute;
     bottom: 0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+}
+
+#load_more img {
+    width: 50px;
 }
 
 .load_more_off {
@@ -258,7 +260,10 @@ p {
     letter-spacing: 3px;
 }
 
-/* CONTACT */
+/****EVENTS SEKTION SLUT****/
+
+/****CONTACT SEKTION****/
+
 #contact_booking {
     display: none;
 }
@@ -267,6 +272,12 @@ p {
     display: none;
 }
 
+/****CONTACT SEKTION SLUT****/
+
+/****FOOTER****/
+
+/****FOOTER SLUT****/
+
 @media only screen and (min-width: 840px) {
     #events h1 {
         margin-top: 0;
@@ -274,9 +285,9 @@ p {
 
     #coming_events {
         grid-template-columns: 1fr 1fr;
-        margin: 0 180px;
+        margin: 0 180px 0 300px;
         grid-gap: 50px;
-        width: calc(100vw - 360px);
+        width: calc(100vw - 500px);
         padding-top: 190px;
     }
 
@@ -300,6 +311,15 @@ p {
     .load_more_toggle {
         max-height: none;
     }
+
 }
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+    #load_more img {
+        width: 70px;
+    }
+
+    #load_more {
+        height: 100px;
+    }
+}
