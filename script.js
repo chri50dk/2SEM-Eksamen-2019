@@ -15,9 +15,6 @@ var today = new Date();
 var todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var todayDateFormat = new Date(todayDate).getTime();
 
-let logo = document.querySelector(".logo");
-
-
 //Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const loadArray = [{
     theUrl: aboutUrl,
@@ -32,10 +29,10 @@ let loadIterator = 0;
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
+    loader();
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
     bookingOption();
-    //    loadMore();
 
     //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
     window.addEventListener("scroll", () => {
@@ -48,8 +45,44 @@ function start() {
             }
         });
     })
+}
+
+let loaderScreen = document.querySelector("#loader");
+let main = document.querySelector("main");
+let loaderSpeed = 10;
+let timer;
+let timer1;
+
+function loader() {
+    logo.src = "img/logo_white.svg";
+    loaderSpeed++;
+
+    if (loaderSpeed > 50) {
+        loaderSpeed + 10;
+        setTimeout(loader2, loaderSpeed);
+    }
+
+    timer = setTimeout(loader2, loaderSpeed);
+}
+
+function loader2() {
+    logo.src = "img/logo_pink.svg";
+
+    if (loaderSpeed < 800) {
+        main.style.display = "none";
+        timer1 = setTimeout(loader, loaderSpeed);
+    } else {
+        loaderScreen.style.animationName = "removeLoader";
+
+        loaderScreen.addEventListener("animationend", () => {
+            main.style.display = "block";
+        })
+    }
+
 
 }
+
+
 
 async function loadContent(contentToLoad) {
     console.log("loadContent");
@@ -198,18 +231,7 @@ function showVenues(content) {
 //}
 
 
-function loadDone() {
-    console.log("loadDone");
 
-
-    let logoContatiner = document.querySelector("#loader");
-    let containerWrapper = document.querySelector("#loader_wrapper");
-
-    logo.classList.add("logo_loaded");
-    logoContatiner.classList.add("loader_loaded");
-    logoContatiner.style.backgroundColor = "transparent";
-    containerWrapper.classList.add("wrapper_loaded");
-}
 
 
 function bookingOption() {

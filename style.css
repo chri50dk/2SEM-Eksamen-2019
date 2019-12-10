@@ -110,40 +110,40 @@ nav a:hover {
 /****SPLASH SLUT****/
 
 /****LOGO + LOADER****/
-
-#loader_wrapper {
-    transition: 3s all;
-}
-
 #loader {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: var(--dark-purple);
+    background-color: beige;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 20;
-    transition: 3s all;
+    overflow: hidden;
+
+    animation-delay: 1s;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
 }
 
-.logo {
+#logo {
     width: 80%;
     position: absolute;
-    transition: 3s all;
-}
-
-.loader_loaded {
-    transform: scale(40);
-}
-
-.logo_loaded {
-    transform: translateY(40px);
 }
 
 .wrapper_loaded {
-    transform: translateX(120px);
+    transform: translateY(-100vh);
+}
+
+@keyframes removeLoader {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
 }
 
 /****LOGO + LOADER SLUT****/
@@ -167,6 +167,7 @@ nav a:hover {
 
 #events h1 {
     margin-top: 40px;
+    margin-bottom: -5px;
 }
 
 #coming_events {
@@ -201,6 +202,7 @@ nav a:hover {
     position: relative;
     margin-top: 100px;
     color: white;
+    margin-bottom: 50px;
 }
 
 #past_events h2 {
@@ -265,6 +267,19 @@ nav a:hover {
 /****EVENTS SEKTION SLUT****/
 
 /****CONTACT SEKTION****/
+#contact h1 {
+    margin-top: -30px;
+}
+
+#contact_wrap {
+    background-color: var(--pink);
+    padding: 30px;
+    margin-top: 70px;
+}
+
+#contact_wrap h2:nth-child(1) {
+    margin-left: 0;
+}
 
 #contact_booking {
     display: none;
