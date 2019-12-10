@@ -22,26 +22,34 @@
     <main>
         <section id="splash">
             <div id="loader_wrapper">
+                <!--
                 <div id="loader">
                     <img class="logo" src="img/logo_purple.svg" alt="">
                 </div>
+-->
             </div>
         </section>
 
         <section id="about">
 
             <h1 class="headlines yellow">ABOUT</h1>
-            <p></p>
-            <p></p>
+            <article class="margin_auto">
+                <p></p>
+                <p></p>
+            </article>
 
         </section>
 
         <section id="events">
             <h1 class="headlines">EVENTS</h1>
-            <article class="load_more_off" id="coming_events">
-                <div id="load_more"><img src="img/pil.svg" alt="pil"></div>
+            <article class="load_more_off margin_auto" id="coming_events">
+                <h2 class="venue_headline more_upc">MORE UPCOMING</h2>
+                <article id="coming_events_scroll">
+
+                </article>
+                <article id="coming_events_big"></article>
             </article>
-            <article id="past_events">
+            <article class="margin_auto" id="past_events">
                 <h2 class="venue_headline">VENUES PLAYED</h2>
             </article>
 
@@ -65,35 +73,36 @@
         <section id="contact">
             <h1 class="headlines yellow">CONTACT</h1>
 
-            <select name="contact_type" id="contact_type">
-                <option value="">-</option>
-                <option value="booking">BOOKING</option>
-                <option value="business">BUSINESS INQUIRY</option>
-            </select>
+            <article class="margin_auto">
+                <select name="contact_type" id="contact_type">
+                    <option value="">-</option>
+                    <option value="booking">BOOKING</option>
+                    <option value="business">BUSINESS INQUIRY</option>
+                </select>
 
 
-            <form method="post" name="contact_business" id="contact_business" action="contact_business.php">
+                <form method="post" name="contact_business" id="contact_business" action="contact_business.php">
 
-                <label for="business">
-                    <h3>BUSINESS NAME</h3>
-                </label>
-                <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
+                    <label for="business">
+                        <h3>BUSINESS NAME</h3>
+                    </label>
+                    <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
 
-                <input type="submit" value="SEND">
+                    <input type="submit" value="SEND">
 
-            </form>
+                </form>
 
-            <form method="post" name="contact_booking" id="contact_booking" action="contact_booking.php">
+                <form method="post" name="contact_booking" id="contact_booking" action="contact_booking.php">
 
-                <label for="venue">
-                    <h3>VENUE</h3>
-                </label>
-                <input type="text" id="venue" name="venue" placeholder="VENUE">
+                    <label for="venue">
+                        <h3>VENUE</h3>
+                    </label>
+                    <input type="text" id="venue" name="venue" placeholder="VENUE">
 
-                <input type="submit" value="SEND">
+                    <input type="submit" value="SEND">
 
-            </form>
-            <!--
+                </form>
+                <!--
 <label for="E-mail">
     <h3>E-mail</h3>
 </label>
@@ -111,8 +120,9 @@
 
 
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia rem perferendis consectetur omnis quaerat doloremque tempore nesciunt, nostrum eos accusantium voluptate illum debitis reiciendis esse illo incidunt aliquid velit! Id!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam et saepe minus, dolore debitis odio repellat, iusto nesciunt maxime placeat totam odit nulla quasi. Est quaerat necessitatibus, nihil dicta doloribus.</p>
+            </article>
         </section>
     </main>
     <footer></footer>

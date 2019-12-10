@@ -6,8 +6,9 @@ let pastEvents = [];
 let venuesPlayedSet;
 let venuesPlayed = [];
 let eventCount;
+let comingEventCount;
 
-const destComing = document.querySelector("#coming_events");
+
 
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
 var today = new Date();
@@ -34,7 +35,7 @@ function start() {
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
     bookingOption();
-    loadMore();
+    //    loadMore();
 
     //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
     window.addEventListener("scroll", () => {
@@ -79,9 +80,12 @@ function showVenues(content) {
     console.log(content);
 
     eventCount = 0;
+    comingEventCount = 0;
 
     const upcomingTemp = document.querySelector("#upcoming_temp");
     const venueTemp = document.querySelector("#venue_temp");
+    const destComing = document.querySelector("#coming_events_big");
+    const destComingScroll = document.querySelector("#coming_events_scroll");
 
     const destPast = document.querySelector("#past_events");
 
@@ -97,7 +101,6 @@ function showVenues(content) {
     //Her køres hvert event igennem forEach loopet, som viser dem i DOM'en.
     content.forEach(event => {
         eventCount++;
-        console.log(eventCount);
         const klon = upcomingTemp.cloneNode(true).content;
 
         klon.querySelector(".event h2 + h2").textContent = event.title.rendered;
@@ -124,8 +127,26 @@ function showVenues(content) {
         if (todayDateFormat > eventDate) {
             console.log("!!");
             pastEvents.push(event.title.rendered);
-        } else {
+        } else if (comingEventCount < 3) {
+            comingEventCount++;
+            console.log(event.title.rendered + comingEventCount);
             destComing.appendChild(klon);
+        } else {
+            klon.querySelector(".event h2 + h2").textContent = day + '/' + month + '/' + year;
+            klon.querySelector(".event h2 + h2").style.fontSize = "2rem";
+            klon.querySelector(".event h3").textContent = event.title.rendered;
+            klon.querySelector(".event h3").style.fontSize = "3rem";
+            klon.querySelector(".event").style.height = "50px";
+            klon.querySelector(".event").style.flexDirection = "row";
+            klon.querySelector(".event").style.marginTop = "5px";
+            klon.querySelector(".event").style.justifyContent = "flex-start";
+            klon.querySelector(".event").style.paddingLeft = "15px";
+            klon.querySelector(".event h3 + h3").textContent = "";
+
+            klon.querySelector(".event h3").style.marginLeft = "15px";
+
+            klon.querySelector(".venue_headline").textContent = "";
+            destComingScroll.append(klon);
         }
 
         //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
@@ -163,14 +184,14 @@ function showVenues(content) {
     })
 }
 
-function loadMore() {
-    console.log("loadMore");
-    document.querySelector("#load_more").addEventListener("click", () => {
-        console.log("CLICK LOAD MORE");
-        destComing.classList.add("load_more_toggle");
-        document.querySelector("#load_more").style.display = "none";
-    })
-}
+//function loadMore() {
+//    console.log("loadMore");
+//    document.querySelector("#load_more").addEventListener("click", () => {
+//        console.log("CLICK LOAD MORE");
+//        destComing.classList.add("load_more_toggle");
+//        document.querySelector("#load_more").style.display = "none";
+//    })
+//}
 
 
 function loadDone() {
