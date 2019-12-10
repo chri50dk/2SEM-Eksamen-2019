@@ -3,6 +3,8 @@ const aboutUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp
 
 let result = [];
 let pastEvents = [];
+let venuesPlayedSet;
+let venuesPlayed = [];
 let eventCount;
 
 const destComing = document.querySelector("#coming_events");
@@ -48,8 +50,6 @@ function start() {
 
 }
 
-
-
 async function loadContent(contentToLoad) {
     console.log("loadContent");
 
@@ -80,7 +80,8 @@ function showVenues(content) {
 
     eventCount = 0;
 
-    const temp = document.querySelector("#events template");
+    const upcomingTemp = document.querySelector("#upcoming_temp");
+    const venueTemp = document.querySelector("#venue_temp");
 
     const destPast = document.querySelector("#past_events");
 
@@ -96,7 +97,8 @@ function showVenues(content) {
     //Her køres hvert event igennem forEach loopet, som viser dem i DOM'en.
     content.forEach(event => {
         eventCount++;
-        const klon = temp.cloneNode(true).content;
+        console.log(eventCount);
+        const klon = upcomingTemp.cloneNode(true).content;
 
         klon.querySelector(".event h2 + h2").textContent = event.title.rendered;
         klon.querySelector(".event h3 + h3").textContent = event.start_time + " - " + event.end_time;
@@ -120,34 +122,44 @@ function showVenues(content) {
         let eventDate = new Date(event.dato).getTime();
 
         if (todayDateFormat > eventDate) {
+            console.log("!!");
             pastEvents.push(event.title.rendered);
         } else {
             destComing.appendChild(klon);
         }
 
-
-
-
-
         //Nu kalder vi en funktion removeDup med vores gamle events som parameter. Denne funktionen sorterer alle duplikerede events fra. Dette gør vi for ikke at vise "Rumors" to gange for eksempel. Vi sætter så alle de unikke spillesteder ind i et nyt array (result[]).
 
         //Kilde: https://stackoverflow.com/questions/54757902/remove-duplicates-in-an-array-using-foreach
 
-        removeDup(pastEvents);
+        //
 
-        function removeDup(arr) {
-            arr.forEach((item, index) => {
-                if (arr.indexOf(item) == index) result.push(item)
-            });
 
-        }
 
-        //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en.
-        //    result.forEach(pastEvent => {
-        //        const klon = temp.cloneNode(true).content;
-        //        klon.querySelector(".event h2 + h2").textContent = pastEvent;
-        //        destPast.appendChild(klon);
-        //    })
+        //Det nye array kører vi nu igennem et forEach loop, og viser dem i DOM'en
+    })
+
+
+
+    console.log(pastEvents);
+
+
+    removeDup(pastEvents);
+
+    function removeDup(arr) {
+        arr.forEach((item, index) => {
+            if (arr.indexOf(item) == index) venuesPlayed.push(item)
+        });
+    }
+
+    console.log(venuesPlayed);
+
+
+    venuesPlayed.forEach(venuePlayed => {
+        console.log(venuePlayed);
+        const klon = venueTemp.cloneNode(true).content;
+        klon.querySelector(".venue_art h2").textContent = venuePlayed;
+        destPast.appendChild(klon);
     })
 }
 

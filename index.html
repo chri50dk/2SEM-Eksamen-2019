@@ -35,24 +35,30 @@
 
         </section>
 
-
-
         <section id="events">
             <h1 class="headlines green">EVENTS</h1>
             <article class="load_more_off" id="coming_events">
                 <div id="load_more"></div>
             </article>
             <article id="past_events">
-                <h2 class="events_h2">VENUES PLAYED</h2>
+                <h2 class="venue_headline">VENUES PLAYED</h2>
             </article>
-            <template>
+
+            <template id="venue_temp">
+                <article class="venue_art">
+                    <h2 class="venue"></h2>
+                </article>
+            </template>
+
+            <template id="upcoming_temp">
                 <article class="event">
-                    <h2 class="upcoming">UPCOMING</h2>
+                    <h2 class="venue_headline">UPCOMING</h2>
                     <h2 class="venue"></h2>
                     <h3></h3>
                     <h3></h3>
                 </article>
             </template>
+
         </section>
 
         <section id="contact">
@@ -112,6 +118,4 @@
 
 
     <script src="script.js"></script>
-</body>
-
-</html>
+</body></html>
