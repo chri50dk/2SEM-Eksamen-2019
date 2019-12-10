@@ -148,6 +148,17 @@ nav a:hover {
 
 /****LOGO + LOADER SLUT****/
 
+/**** ABOUT SEKTION ****/
+#about p {
+    background-color: red;
+    padding: 30px;
+    margin: 0;
+}
+
+#about_img {
+    width: 100%;
+}
+
 /****EVENTS SEKTION****/
 .margin_auto {
     width: calc(100vw - 120px);
