@@ -3,10 +3,8 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
-
     --bebas: 'Bebas Neue', sans-serif;
     --roboto: 'Roboto', sans-serif;
-
     --purple: #c3add9;
     --lightpink: #f2ced5;
     --pink: #d9adc3;
@@ -43,6 +41,7 @@ p {
     font-family: 'Roboto', sans-serif;
     color: black;
     font-size: 1.6rem;
+    line-height: 1.5;
 }
 
 section {
@@ -81,13 +80,16 @@ header {
 }
 
 nav {
-    margin-right: 20px;
     position: fixed;
 }
 
 header nav {
     margin: 0;
     padding: 0;
+}
+
+header nav a:last-child {
+    margin-right: 8px;
 }
 
 nav a {
@@ -215,14 +217,19 @@ nav a:hover {
     grid-column: 1;
 }
 
+.venue_h2 {
+    grid-row: 5;
+}
+
 #past_events {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    height: auto;
+    max-height: 300px;
+    /*    background-color: var(--yellow);*/
+    overflow: scroll;
+    margin-top: 115px;
     position: relative;
-    margin-top: 100px;
-    color: white;
-    margin-bottom: 50px;
+    grid-row: 5;
+    grid-column: 1;
 }
 
 #past_events h2 {
@@ -246,12 +253,19 @@ nav a:hover {
 }
 
 .venue_art {
-    background-color: #add9d9;
-    height: 150px;
+    height: 50px;
+    justify-content: flex-start;
+    padding-left: 15px;
+    background-color: var(--green);
     display: flex;
-    justify-content: center;
+    align-content: center;
     align-items: center;
+    margin-top: 5px;
+}
+
+.venue_art h3 {
     color: white;
+    margin: 5px 0;
 }
 
 .venue {
@@ -286,6 +300,43 @@ nav a:hover {
 
 /****EVENTS SEKTION SLUT****/
 
+/****DJ SCHOOL****/
+
+#dj_school {
+    background-image: url(img/lisa2.png);
+    width: 100vw;
+    height: 90vh;
+    background-size: cover;
+    background-position: 10%;
+    max-width: none;
+}
+
+#dj_school .txt {
+    position: absolute;
+    width: 90vw;
+    bottom: 0;
+    right: 0;
+}
+
+#dj_school p {
+    background-color: rgba(242, 206, 213, 0.96);
+    padding: 30px;
+    margin: 0;
+    color: white;
+}
+
+#dj_school p:nth-child(2) {
+    padding-top: 0;
+}
+
+#djschool_img {
+    width: 100%;
+}
+
+.djschool_wrap {
+    margin-top: 60px;
+}
+
 /****CONTACT SEKTION****/
 
 #contact h1 {
@@ -293,7 +344,7 @@ nav a:hover {
 }
 
 #contact_wrap {
-    background-color: var(--lightpink);
+    background-color: var(--green);
     padding: 30px;
     margin-top: 70px;
 }
@@ -366,7 +417,19 @@ input[type="submit"] {
 /****CONTACT SEKTION SLUT****/
 
 /****FOOTER****/
-footer {}
+
+footer p {
+    font-size: 1.3rem;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding-top: 0.5rem;
+    position: relative;
+    text-transform: uppercase;
+    bottom: 0;
+}
 
 /****FOOTER SLUT****/
 
@@ -408,14 +471,22 @@ footer {}
         margin-top: 5px;
     }
 
-    .event #past_events {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
     .more_upc {
         grid-column: 2;
         grid-row: 2;
         padding-top: 20px;
+    }
+
+    #past_events {
+        grid-column: 1;
+        grid-row: 3;
+        margin-top: -200px;
+    }
+
+    .venue_h2 {
+        grid-column: 1;
+        grid-row: 3;
+        margin-top: -285px;
     }
 
     #about_img {
@@ -426,6 +497,17 @@ footer {}
     .about_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .djschool_wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 100px;
+    }
+
+    #djschool_img {
+        grid-column: 2;
+        grid-row: 1;
     }
 
     #contact_grid {
@@ -450,10 +532,6 @@ footer {}
         width: calc(100vw - 500px);
     }
 
-    #past_events {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
 
     #load_more img {
         width: 70px;
@@ -461,5 +539,9 @@ footer {}
 
     #load_more {
         height: 100px;
+    }
+
+    .djschool_wrap {
+        margin-top: 100px;
     }
 }

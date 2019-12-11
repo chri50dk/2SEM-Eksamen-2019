@@ -1,5 +1,6 @@
 const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue?per_page=100";
 const aboutUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/about/58";
+const djschoolUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/djschool/74";
 
 let result = [];
 let pastEvents = [];
@@ -22,6 +23,9 @@ const loadArray = [{
 }, {
     theUrl: venueUrl,
     theFunction: showVenues
+}, {
+    theUrl: djschoolUrl,
+    theFunction: showDjschool
 }];
 
 let loadIterator = 0;
@@ -107,6 +111,13 @@ function showAbout(content) {
 
     document.querySelector("#about p").textContent = content.about_1;
     document.querySelector("#about p + p").textContent = content.about_2;
+}
+
+function showDjschool(content) {
+    console.log(content);
+
+    document.querySelector("#dj_school p").textContent = content.djschool_1;
+    document.querySelector("#dj_school p + p").textContent = content.djschool_2;
 }
 
 
@@ -217,7 +228,7 @@ function showVenues(content) {
     venuesPlayed.forEach(venuePlayed => {
         console.log(venuePlayed);
         const klon = venueTemp.cloneNode(true).content;
-        klon.querySelector(".venue_art h2").textContent = venuePlayed;
+        klon.querySelector(".venue_art h3").textContent = venuePlayed;
         destPast.appendChild(klon);
     })
 }
