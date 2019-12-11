@@ -3,17 +3,20 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    --purple: #A510FF;
-    --dark-purple: #0E0118;
-    --yellow: #E2FF10;
-    --pink: #FF10E2;
+
     --bebas: 'Bebas Neue', sans-serif;
     --roboto: 'Roboto', sans-serif;
+
+    --purple: #c3add9;
+    --lightpink: #f2ced5;
+    --pink: #d9adc3;
+    --green: #add9d9;
+
 }
 
 body {
     margin: 0;
-    background-color: #fbfbfb;
+    background-color: white;
 }
 
 html {
@@ -60,7 +63,7 @@ section {
     float: left;
 }
 
-.yellow {
+.purple {
     color: #c3add9;
 }
 
@@ -75,11 +78,16 @@ header {
     z-index: 10;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 }
 
 nav {
     margin-right: 20px;
+    position: fixed;
+}
+
+header nav {
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -87,11 +95,11 @@ nav a {
     font-size: 2rem;
     margin-left: 15px;
     font-family: var(--bebas);
-    color: white;
+    color: black;
 }
 
 nav a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid black;
 }
 
 /****MENU SLUT****/
@@ -225,7 +233,7 @@ nav a:hover {
 .event {
     width: 100%;
     height: 200px;
-    background-color: #add9d9;
+    background-color: var(--green);
     color: white;
     display: flex;
     flex-direction: column;
@@ -285,7 +293,7 @@ nav a:hover {
 }
 
 #contact_wrap {
-    background-color: #add9d9;
+    background-color: var(--lightpink);
     padding: 30px;
     margin-top: 70px;
 }
@@ -358,8 +366,10 @@ input[type="submit"] {
 /****CONTACT SEKTION SLUT****/
 
 /****FOOTER****/
+footer {}
 
 /****FOOTER SLUT****/
+
 
 @media only screen and (min-width: 840px) {
     .margin_auto {
