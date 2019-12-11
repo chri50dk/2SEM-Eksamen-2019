@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THANKS!</title>
+    <link rel="stylesheet" href="thanks.css">
+</head>
+
+<body>
+    <article>
+        <img src="img/logo_pink.svg" alt="">
+        <h1>THANKS FOR YOUR REQUEST</h1>
+        <h2>I will reply ASAP!</h2>
+        <button>BACK TO SITE</button>
+    </article>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("button").addEventListener("click", () => {
+                console.log("back");
+                location.href = "index.html";
+            })
+        });
+    </script>
+</body></html>

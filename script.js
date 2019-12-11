@@ -9,8 +9,6 @@ let venuesPlayed = [];
 let eventCount;
 let comingEventCount;
 
-
-
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
 var today = new Date();
 var todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -33,7 +31,7 @@ let loadIterator = 0;
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
-    //    loader();
+    loader();
 
 
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
@@ -50,6 +48,32 @@ function start() {
             }
         });
     })
+
+    let contactType = document.querySelector("#contact_type");
+    let businessField = document.querySelector("#business_field");
+    let venueField = document.querySelector("#venue_field");
+
+    contactType.addEventListener("change", () => {
+        if (contactType.value === "booking") {
+            console.log("BOOKING");
+            businessField.style.display = "none";
+            venueField.style.display = "block";
+
+        } else if (contactType.value === "business") {
+            console.log("BUSINESS");
+            businessField.style.display = "block";
+            venueField.style.display = "none";
+        } else if (contactType.value === "school") {
+            console.log("SCHOOL");
+            businessField.style.display = "none";
+            venueField.style.display = "none";
+        } else {
+            businessField.style.display = "none";
+            venueField.style.display = "none";
+        }
+    })
+
+
 }
 
 let loaderScreen = document.querySelector("#loader");
@@ -232,12 +256,3 @@ function showVenues(content) {
         destPast.appendChild(klon);
     })
 }
-
-//function loadMore() {
-//    console.log("loadMore");
-//    document.querySelector("#load_more").addEventListener("click", () => {
-//        console.log("CLICK LOAD MORE");
-//        destComing.classList.add("load_more_toggle");
-//        document.querySelector("#load_more").style.display = "none";
-//    })
-//}
