@@ -7,6 +7,8 @@
     --dark-purple: #0E0118;
     --yellow: #E2FF10;
     --pink: #FF10E2;
+    --bebas: 'Bebas Neue', sans-serif;
+    --roboto: 'Roboto', sans-serif;
 }
 
 body {
@@ -21,17 +23,17 @@ html {
 h1 {
     color: black;
     font-size: 10rem;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
     position: absolute;
 }
 
 h2 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
     color: black;
 }
 
 h3 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
 }
 
 p {
@@ -84,7 +86,7 @@ nav a {
     text-decoration: none;
     font-size: 2rem;
     margin-left: 15px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
     color: white;
 }
 
@@ -230,7 +232,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
     position: relative;
     margin-top: 80px;
 }
@@ -258,7 +260,7 @@ nav a:hover {
     grid-column: 1/2;
     grid-row: 1;
     font-size: 5rem;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--bebas);
     margin: 20px 0 5px 0;
     color: white;
 }
@@ -277,12 +279,13 @@ nav a:hover {
 /****EVENTS SEKTION SLUT****/
 
 /****CONTACT SEKTION****/
+
 #contact h1 {
     margin-top: -30px;
 }
 
 #contact_wrap {
-    background-color: var(--pink);
+    background-color: #add9d9;
     padding: 30px;
     margin-top: 70px;
 }
@@ -291,12 +294,65 @@ nav a:hover {
     margin-left: 0;
 }
 
-#contact_booking {
-    display: none;
+.form_heading {
+    font-size: 3rem;
+    margin-bottom: 0;
 }
 
-#contact_business {
-    display: none;
+#contact_form input {
+    width: 100%;
+    height: 40px;
+    font-family: var(--roboto);
+    font-size: 1.5rem;
+    border: none;
+    padding-left: 10px;
+}
+
+#request,
+#contact_type {
+    width: 100%;
+    font-family: var(--roboto);
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px;
+}
+
+#contact_type {
+    height: 40px;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+#select_wrap {
+    position: relative;
+    width: 100%;
+}
+
+#arrow_down {
+    position: absolute;
+    top: 12.5px;
+    right: 10px;
+    height: 15px;
+    pointer-events: none;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#contact_info {
+    margin-top: 20px;
+}
+
+.contact_txt {
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    font-family: var(--roboto);
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 0;
 }
 
 /****CONTACT SEKTION SLUT****/
@@ -360,6 +416,20 @@ nav a:hover {
     .about_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    #contact_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #contact_form {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #contact_info {
+        margin-left: 20px;
     }
 
 }
