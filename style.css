@@ -184,6 +184,10 @@ nav a:hover {
 
 /**** ABOUT SEKTION ****/
 
+#about {
+    margin-top: 40px;
+}
+
 #about p {
     background-color: #f2ced5;
     padding: 30px;
@@ -347,7 +351,8 @@ nav a:hover {
 }
 
 #djschool_img {
-    width: 100%;
+    display: none;
+
 }
 
 .djschool_wrap {
@@ -523,12 +528,6 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
-    .djschool_wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 100px;
-    }
-
     #dj_school {
         height: 60vh;
     }
@@ -542,7 +541,7 @@ footer {
 
 
     #djschool_img {
-        grid-column: 2;
+        grid-column: 1;
         grid-row: 1;
     }
 
@@ -578,20 +577,33 @@ footer {
     }
 
     .djschool_wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         margin-top: 100px;
+    }
+
+    #dj_school .margin_auto {
+        margin-left: 270px;
     }
 
     #dj_school {
         height: 80vh;
         width: 50vw;
-        background-position: 73%;
+        background-image: none;
 
     }
 
     #dj_school .txt {
         position: absolute;
-        width: 40vw;
-        top: 20px;
-        right: -400px;
+        width: 30vw;
+        top: 120px;
+        right: -440px;
+    }
+
+    #djschool_img {
+        display: block;
+        width: 55vw;
+        height: auto;
+
     }
 }
