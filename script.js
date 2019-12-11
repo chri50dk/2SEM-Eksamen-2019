@@ -29,7 +29,9 @@ let loadIterator = 0;
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
-    loader();
+    //    loader();
+
+
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
     bookingOption();
