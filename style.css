@@ -3,10 +3,10 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    --purple: #A510FF;
-    --dark-purple: #0E0118;
-    --yellow: #E2FF10;
-    --pink: #FF10E2;
+    --purple: #c3add9;
+    --lightpink: #f2ced5;
+    --pink: #d9adc3;
+    --green: #add9d9;
 }
 
 body {
@@ -58,7 +58,7 @@ section {
     float: left;
 }
 
-.yellow {
+.purple {
     color: #c3add9;
 }
 
@@ -72,12 +72,19 @@ header {
     position: absolute;
     z-index: 10;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 nav {
     margin-right: 20px;
+    position: fixed;
+}
+
+header nav {
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+    margin-left: 100px;
 }
 
 nav a {
@@ -223,7 +230,7 @@ nav a:hover {
 .event {
     width: 100%;
     height: 200px;
-    background-color: #add9d9;
+    background-color: var(--green);
     color: white;
     display: flex;
     flex-direction: column;
@@ -282,7 +289,7 @@ nav a:hover {
 }
 
 #contact_wrap {
-    background-color: var(--pink);
+    background-color: var(--lightpink);
     padding: 30px;
     margin-top: 70px;
 }
@@ -302,8 +309,15 @@ nav a:hover {
 /****CONTACT SEKTION SLUT****/
 
 /****FOOTER****/
+footer {}
 
 /****FOOTER SLUT****/
+
+@media only screen and (min-width: 500px) {
+    header nav {
+        margin-left: 220px;
+    }
+}
 
 @media only screen and (min-width: 840px) {
     .margin_auto {
@@ -362,6 +376,10 @@ nav a:hover {
         grid-template-columns: 1fr 1fr;
     }
 
+    header nav {
+        margin-left: 570px;
+    }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -381,5 +399,9 @@ nav a:hover {
 
     #load_more {
         height: 100px;
+    }
+
+    header nav {
+        margin-left: 1140px;
     }
 }
