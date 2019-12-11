@@ -11,7 +11,8 @@
     --lightpink: #f2ced5;
     --pink: #d9adc3;
     --green: #add9d9;
-
+    --beige: #f5f1ee;
+    --logo_pink: #DE8394;
 }
 
 body {
@@ -22,6 +23,8 @@ body {
 html {
     font-size: 62.5%;
 }
+
+
 
 h1 {
     color: black;
@@ -73,52 +76,64 @@ section {
 
 header {
     width: 100vw;
-    height: 50px;
-    position: absolute;
+    height: 130px;
+    position: fixed;
     z-index: 10;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    /*    background-color: var(--beige);*/
+}
+
+#header_logo {
+    width: 200px;
+    height: 100px;
 }
 
 nav {
     margin-right: 20px;
-    position: fixed;
+    margin: 0;
+    width: 310px;
 }
 
-header nav {
-    margin: 0;
-    padding: 0;
-}
 
 nav a {
     text-decoration: none;
     font-size: 2rem;
     margin-left: 15px;
     font-family: var(--bebas);
-    color: black;
+    color: white;
 }
 
 nav a:hover {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
 
 /****MENU SLUT****/
 
 /****SPLASH****/
-
 #splash {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/**** SPLASH ****/
+.fullscreen-bg {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
 }
 
-#splash h1:nth-child(1) {
-    top: 100px;
-    left: 70px;
-}
-
-#splash h1:nth-child(2) {
-    top: 200px;
-    left: 30px;
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 /****SPLASH SLUT****/
@@ -128,7 +143,7 @@ nav a:hover {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: beige;
+    background-color: var(--beige);
     top: 0;
     display: flex;
     justify-content: center;
@@ -363,13 +378,20 @@ input[type="submit"] {
     margin-top: 0;
 }
 
+#venue_field {
+    display: none;
+}
+
+#business_field {
+    display: none;
+}
+
 /****CONTACT SEKTION SLUT****/
 
 /****FOOTER****/
 footer {}
 
 /****FOOTER SLUT****/
-
 
 @media only screen and (min-width: 840px) {
     .margin_auto {

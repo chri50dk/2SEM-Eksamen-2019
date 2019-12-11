@@ -13,6 +13,7 @@
 
 <body>
     <header>
+        <img id="header_logo" src="img/logo_pink.svg" alt="">
         <nav>
             <a href="index.html#about">ABOUT</a>
             <a href="index.html#events">EVENTS</a>
@@ -22,12 +23,19 @@
     </header>
 
     <section id="splash">
-        <!--
+
+
         <div id="loader">
             <img id="logo" src="img/logo_white.svg" alt="">
         </div>
--->
 
+        <div class="fullscreen-bg">
+            <video loop muted autoplay poster="" class="fullscreen-bg__video">
+
+                <source src="video/splash.mp4" type="video/mp4">
+
+            </video>
+        </div>
     </section>
 
     <main>
@@ -121,7 +129,18 @@
                             </select>
                             <img src="img/arrow_down.svg" id="arrow_down" alt="arrow down">
                         </div>
-
+                        <div id="venue_field">
+                            <label for="venue">
+                                <h3 class="form_heading">VENUE</h3>
+                            </label>
+                            <input type="text" id="venue" name="venue" placeholder="VENUE">
+                        </div>
+                        <div id="business_field">
+                            <label for="business">
+                                <h3 class="form_heading">BUSINESS NAME</h3>
+                            </label>
+                            <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
+                        </div>
                         <label for="request">
                             <h3 class="form_heading">REQUEST</h3>
                         </label>
