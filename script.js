@@ -148,7 +148,7 @@ function showAbout(content) {
     console.log(content);
 
     document.querySelector("#about p").textContent = content.about_1;
-    document.querySelector("#about p + p").textContent = content.about_2;
+    /*  document.querySelector("#about p + p").textContent = content.about_2;*/
 }
 
 function showDjschool(content) {
