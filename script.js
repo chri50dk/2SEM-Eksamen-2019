@@ -8,6 +8,7 @@ let venuesPlayedSet;
 let venuesPlayed = [];
 let eventCount;
 let comingEventCount;
+let burgerKnap = document.querySelector("#burger_knap");
 
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
 var today = new Date();
@@ -33,13 +34,24 @@ document.addEventListener("DOMContentLoaded", start);
 function start() {
     loader();
 
+    burgerKnap.addEventListener("click", openMenu);
 
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
 
     //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
     window.addEventListener("scroll", () => {
-        var elementTarget = document.querySelectorAll(".headlines");
+        let elementTarget = document.querySelectorAll(".headlines");
+
+        if (window.scrollY > 200) {
+            burgerKnap.style.display = "none";
+            burgerKnap.style.position = "fixed";
+            burgerKnap.style.top = "87vh";
+            burgerKnap.style.display = "block";
+        } else {
+            burgerKnap.style.position = "absolute";
+            burgerKnap.style.top = "30px";
+        }
 
         elementTarget.forEach(headline => {
             if (window.scrollY - window.innerHeight > headline.offsetTop) {
@@ -48,6 +60,8 @@ function start() {
             }
         });
     })
+
+
 
     let contactType = document.querySelector("#contact_type");
     let businessField = document.querySelector("#business_field");
@@ -97,7 +111,7 @@ function loader() {
 function loader2() {
     logo.src = "img/logo_pink.svg";
 
-    if (loaderSpeed < 800) {
+    if (loaderSpeed < 1) {
         main.style.display = "none";
         timer1 = setTimeout(loader, loaderSpeed);
     } else {
@@ -255,4 +269,25 @@ function showVenues(content) {
         klon.querySelector(".venue_art h3").textContent = venuePlayed;
         destPast.appendChild(klon);
     })
+}
+
+
+function openMenu() {
+    console.log("openMenu");
+
+    burgerKnap.classList.toggle("open");
+
+    document.querySelector("#menu").classList.toggle("toggle_menu");
+
+    let links = document.querySelectorAll(".menu_links a");
+
+    links.forEach(link => {
+        link.addEventListener("mouseup", toggleMenu);
+    })
+}
+
+function toggleMenu() {
+    console.log("toggleMenu");
+    burgerKnap.classList.toggle("open");
+    document.querySelector("#menu").classList.toggle("toggle_menu");
 }
