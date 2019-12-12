@@ -633,16 +633,6 @@ input[type="submit"] {
     margin-top: 20px;
 }
 
-.contact_txt {
-    text-decoration: none;
-    color: black;
-    font-size: 1.6rem;
-    font-family: var(--roboto);
-    display: block;
-    margin-bottom: 5px;
-    margin-top: 0;
-}
-
 #venue_field {
     display: none;
 }
@@ -655,17 +645,28 @@ input[type="submit"] {
 
 /****FOOTER****/
 
+.footer_wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
 footer p {
     font-size: 1.3rem;
+    color: var(--purple);
+}
+
+footer a {
+    text-decoration: none;
 }
 
 footer {
-    text-align: center;
     width: 100%;
     padding-top: 0.5rem;
     position: relative;
     text-transform: uppercase;
     bottom: 0;
+    margin-top: 20px;
+
 }
 
 /****FOOTER SLUT****/
@@ -830,6 +831,7 @@ footer {
         align-items: center;
         height: 435px;
         margin-top: 200px;
+
     }
 
     #social {
@@ -842,6 +844,12 @@ footer {
 
     #insta {
         margin-right: 10px;
+    }
+
+    .footer_wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
+        justify-content: space-around;
     }
 
 }
