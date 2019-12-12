@@ -43,15 +43,15 @@ function start() {
     window.addEventListener("scroll", () => {
         let elementTarget = document.querySelectorAll(".headlines");
 
-        if (window.scrollY > 200) {
-            burgerKnap.style.display = "none";
-            burgerKnap.style.position = "fixed";
-            burgerKnap.style.top = "87vh";
-            burgerKnap.style.display = "block";
-        } else {
-            burgerKnap.style.position = "absolute";
-            burgerKnap.style.top = "30px";
-        }
+        //        if (window.scrollY > 200) {
+        //            burgerKnap.style.display = "none";
+        //            burgerKnap.style.position = "fixed";
+        //            burgerKnap.style.top = "30px";
+        //            burgerKnap.style.display = "block";
+        //        } else {
+        //            burgerKnap.style.position = "absolute";
+        //            burgerKnap.style.top = "30px";
+        //        }
 
         elementTarget.forEach(headline => {
             if (window.scrollY - window.innerHeight > headline.offsetTop) {
@@ -92,40 +92,32 @@ function start() {
 
 let loaderScreen = document.querySelector("#loader");
 let main = document.querySelector("main");
-let loaderSpeed = 10;
-let timer;
-let timer1;
+let footer = document.querySelector("footer");
+
+let progress = document.querySelector("#progress");
+
+let width = 0;
+
+let timer = setInterval(loader, 5);
 
 function loader() {
-    logo.src = "img/logo_white.svg";
-    loaderSpeed++;
+    width = width + 0.2;
 
-    if (loaderSpeed > 50) {
-        loaderSpeed + 10;
-        setTimeout(loader2, loaderSpeed);
-    }
+    main.style.display = "none";
+    footer.style.display = "none";
 
-    timer = setTimeout(loader2, loaderSpeed);
-}
+    progress.style.width = width + "%";
 
-function loader2() {
-    logo.src = "img/logo_pink.svg";
-
-    if (loaderSpeed < 1) {
-        main.style.display = "none";
-        timer1 = setTimeout(loader, loaderSpeed);
-    } else {
+    if (width > 100) {
+        console.log("100");
+        clearInterval(timer);
         loaderScreen.style.animationName = "removeLoader";
-
         loaderScreen.addEventListener("animationend", () => {
             main.style.display = "block";
+            footer.style.display = "block";
         })
     }
-
-
 }
-
-
 
 async function loadContent(contentToLoad) {
     console.log("loadContent");

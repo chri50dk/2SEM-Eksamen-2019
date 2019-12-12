@@ -110,7 +110,7 @@ nav {
 }
 
 #burger_knap {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 30px;
     width: 65px;
@@ -237,19 +237,20 @@ header {
     height: 100vh;
     position: relative;
     background-color: #fbfbfb;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 20;
     overflow: hidden;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
 #logo {
     width: 80%;
+    max-width: 400px;
     /*    position: absolute;*/
 }
 
@@ -258,10 +259,19 @@ header {
 }
 
 #progress_bar {
-    width: 400px;
+    max-width: 400px;
+    width: 80%;
     height: 20px;
-    border: 1px solid;
-    margin-top: 300px;
+    border: 1px solid var(--green);
+    margin-top: 20px;
+    position: relative;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background-color: var(--green);
+    max-width: 100%;
 }
 
 @keyframes removeLoader {
@@ -507,17 +517,30 @@ header {
     margin-top: 60px;
 }
 
+.djschool_wrap .txt {
+    background-color: var(--lightpink);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    height: fit-content;
+}
+
 .cta {
     padding: 0;
     -webkit-appearance: none;
     border: none;
-    background-color: var(--green);
-    color: white;
+    background-color: rgba(181, 126, 154, 0.26);
     font-size: 2rem;
     font-family: var(--bebas);
     cursor: pointer;
-    width: 150px;
+    width: 90%;
     align-self: center;
+    opacity: 1;
+}
+
+.cta a {
+    text-decoration: none;
+    color: black;
 }
 
 /****CONTACT SEKTION****/
@@ -594,6 +617,7 @@ header {
     font-size: 1.5rem;
     border: none;
     padding-left: 10px;
+    background-color: white;
 }
 
 #request,
@@ -669,6 +693,20 @@ footer {
 }
 
 /****FOOTER SLUT****/
+@media only screen and (max-width:430px) {
+
+    .venue_headline,
+    .more_upc {
+        font-size: 5rem;
+    }
+
+    .more_upc,
+    .venue_h2 {
+        padding-top: 62px;
+    }
+
+
+}
 
 @media only screen and (min-width: 840px) {
     .margin_auto {
