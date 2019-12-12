@@ -15,7 +15,7 @@
 
 body {
     margin: 0;
-    background-color: white;
+    background-color: #fbfbfb;
 }
 
 html {
@@ -148,14 +148,13 @@ nav a:hover {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: var(--beige);
+    background-color: #fbfbfb;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 20;
     overflow: hidden;
-
     animation-delay: 1s;
     animation-duration: 4s;
     animation-fill-mode: forwards;
@@ -232,7 +231,7 @@ nav a:hover {
 }
 
 .more_upc {
-    padding-top: 50px;
+    padding-top: 59px;
     font-size: 6rem;
     margin: 0;
     grid-row: 4;
@@ -343,7 +342,7 @@ nav a:hover {
     background-color: rgba(242, 206, 213, 0.96);
     padding: 30px;
     margin: 0;
-    color: white;
+    color: #050C0D;
 }
 
 #dj_school p:nth-child(2) {
@@ -469,6 +468,10 @@ footer {
         width: calc(100vw - 280px);
     }
 
+    #events {
+        margin-bottom: 50px;
+    }
+
     #events h1 {
         margin-top: 0;
     }
@@ -503,7 +506,13 @@ footer {
     .more_upc {
         grid-column: 2;
         grid-row: 2;
-        padding-top: 20px;
+        padding-top: 36px;
+        font-size: 5rem;
+    }
+
+    .venue_headline {
+        font-size: 5rem;
+        margin-left: 20px;
     }
 
     #past_events {
@@ -515,7 +524,7 @@ footer {
     .venue_h2 {
         grid-column: 1;
         grid-row: 3;
-        margin-top: -285px;
+        margin-top: -283px;
     }
 
     #about_img {
@@ -575,6 +584,17 @@ footer {
     #load_more {
         height: 100px;
     }
+
+    .more_upc {
+        padding-top: 27px;
+        font-size: 6rem;
+    }
+
+    .venue_headline {
+        font-size: 6rem;
+        margin-left: 35px;
+    }
+
 
     .djschool_wrap {
         display: grid;
