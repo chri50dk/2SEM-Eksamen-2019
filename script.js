@@ -154,6 +154,7 @@ function showAbout(content) {
 function showDjschool(content) {
     console.log(content);
 
+    document.querySelector("#dj_school h2").textContent = content.djschool_overskrift;
     document.querySelector("#dj_school p").textContent = content.djschool_1;
     document.querySelector("#dj_school p + p").textContent = content.djschool_2;
 }

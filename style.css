@@ -286,7 +286,6 @@ header {
     margin-bottom: 0px;
 }
 
-
 #about p {
     background-color: var(--lightpink);
     padding: 30px;
@@ -462,9 +461,22 @@ header {
     color: #050C0D;
 }
 
+#dj_school h2 {
+    background-color: rgba(242, 206, 213, 0.96);
+    padding: 20px 30px 2px 30px;
+    margin: 0;
+    color: #050C0D;
+    font-size: 2.5rem;
+}
+
 #dj_school p:nth-child(2) {
     padding-top: 0;
     padding-bottom: 10px;
+}
+
+#dj_school p:nth-child(3) {
+    padding-top: 0;
+    padding-bottom: 30px;
 }
 
 #djschool_img {
@@ -474,6 +486,19 @@ header {
 
 .djschool_wrap {
     margin-top: 60px;
+}
+
+.cta {
+    padding: 0;
+    -webkit-appearance: none;
+    border: none;
+    background-color: var(--green);
+    color: white;
+    font-size: 2rem;
+    font-family: var(--bebas);
+    cursor: pointer;
+    width: 150px;
+    align-self: center;
 }
 
 /****CONTACT SEKTION****/
@@ -506,7 +531,6 @@ header {
 #social {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     justify-content: space-around;
     margin-top: 15px;
     width: 100%;
@@ -514,7 +538,8 @@ header {
 
 #social a {
     text-decoration: none;
-    color: black;
+    color: #fbfbfb;
+    transition: 0.5s ease all;
 }
 
 #face,
@@ -531,6 +556,11 @@ header {
 
 #social img {
     width: 90px;
+}
+
+#social a:hover {
+    transform: scale(1.05);
+    color: var(--black);
 }
 
 .form_heading {
