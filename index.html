@@ -57,8 +57,6 @@
                 <div>
                     <p></p>
                     <p></p>
-                    <iframe class="sc_player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555975486&color=%23f2ced5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                    <iframe class="sc_player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555541755&color=%23f2ced5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 </div>
                 <img src="img/lisa4.png" id="about_img" alt="billede af lisa">
             </article>
@@ -106,79 +104,99 @@
                     <p></p>
                     <p></p>
                 </div>
-                 <img src="img/lisa2.png" id="djschool_img" alt="billede af lisa">
+                <img src="img/lisa2.png" id="djschool_img" alt="billede af lisa">
             </article>
         </section>
 
         <section id="contact">
             <h1 class="headlines">CONTACT</h1>
 
-            <article class="margin_auto" id="contact_wrap">
+            <section class="margin_auto" id="contact_section">
+                <article class="" id="contact_wrap">
 
-                <h2 class="venue_headline">CONTACT ME</h2>
+                    <h2 class="venue_headline">CONTACT ME</h2>
 
-                <article id="contact_grid">
-                    <div id="contact_info">
-                        <a class="contact_txt" href="mailto:djlisafosmark@outlook.com">djlisafosmark@outlook.com</a>
-                        <a class="contact_txt" href="tel:+4520718412">+45 20 71 84 12</a>
-                        <p class="contact_txt">CVR: XXXXXXX</p>
-                    </div>
+                    <article id="contact_grid">
 
-                    <form method="post" name="contact_business" id="contact_form" action="book.php">
+                        <form method="post" name="contact_business" id="contact_form" action="book.php">
 
-                        <label for="name">
-                            <h3 class="form_heading">NAME</h3>
-                        </label>
-                        <input type="text" id="name" name="name" placeholder="NAME">
-
-                        <label for="email">
-                            <h3 class="form_heading">EMAIL</h3>
-                        </label>
-                        <input type="text" id="email" name="email" placeholder="E-MAIL">
-
-                        <label for="phone">
-                            <h3 class="form_heading">PHONE</h3>
-                        </label>
-                        <input type="text" id="phone" name="phone" placeholder="PHONE">
-
-                        <label for="contact_type">
-                            <h3 class="form_heading">CONTACT TYPE</h3>
-                        </label>
-                        <div id="select_wrap">
-                            <select name="contact_type" id="contact_type">
-                                <option value="">-</option>
-                                <option value="booking">DJ BOOKING</option>
-                                <option value="business">BUSINESS INQUIRY</option>
-                                <option value="school">DJ SCHOOL</option>
-                            </select>
-                            <img src="img/arrow_down.svg" id="arrow_down" alt="arrow down">
-                        </div>
-                        <div id="venue_field">
-                            <label for="venue">
-                                <h3 class="form_heading">VENUE</h3>
+                            <label for="name">
+                                <h3 class="form_heading">NAME</h3>
                             </label>
-                            <input type="text" id="venue" name="venue" placeholder="VENUE">
-                        </div>
-                        <div id="business_field">
-                            <label for="business">
-                                <h3 class="form_heading">BUSINESS NAME</h3>
+                            <input type="text" id="name" name="name" placeholder="NAME">
+
+                            <label for="email">
+                                <h3 class="form_heading">EMAIL</h3>
                             </label>
-                            <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
-                        </div>
-                        <label for="request">
-                            <h3 class="form_heading">REQUEST</h3>
-                        </label>
-                        <textarea name="request" id="request" cols="30" rows="10" placeholder="TYPE YOUR REQUEST HERE..."></textarea>
+                            <input type="text" id="email" name="email" placeholder="E-MAIL">
 
-                        <input type="submit" value="SEND">
+                            <label for="phone">
+                                <h3 class="form_heading">PHONE</h3>
+                            </label>
+                            <input type="text" id="phone" name="phone" placeholder="PHONE">
+
+                            <label for="contact_type">
+                                <h3 class="form_heading">CONTACT TYPE</h3>
+                            </label>
+                            <div id="select_wrap">
+                                <select name="contact_type" id="contact_type">
+                                    <option value="">-</option>
+                                    <option value="booking">DJ BOOKING</option>
+                                    <option value="business">BUSINESS INQUIRY</option>
+                                    <option value="school">DJ SCHOOL</option>
+                                </select>
+                                <img src="img/arrow_down.svg" id="arrow_down" alt="arrow down">
+                            </div>
+                            <div id="venue_field">
+                                <label for="venue">
+                                    <h3 class="form_heading">VENUE</h3>
+                                </label>
+                                <input type="text" id="venue" name="venue" placeholder="VENUE">
+                            </div>
+                            <div id="business_field">
+                                <label for="business">
+                                    <h3 class="form_heading">BUSINESS NAME</h3>
+                                </label>
+                                <input type="text" id="business" name="business" placeholder="BUSINESS NAME">
+                            </div>
+                            <label for="request">
+                                <h3 class="form_heading">REQUEST</h3>
+                            </label>
+                            <textarea name="request" id="request" cols="30" rows="10" placeholder="TYPE YOUR REQUEST HERE..."></textarea>
+
+                            <input type="submit" value="SEND">
 
 
-                    </form>
+                        </form>
+                    </article>
+
                 </article>
-            </article>
+                <article class="margin_auto" id="find_wrap">
+                    <h2 class="venue_headline">FIND ME</h2>
+                    <div id="social">
+                        <a href="https://www.instagram.com/lisafosmark/" target="_blank" id="insta">
+                            <img src="social/insta_trans_sort.svg" alt="">
+                            <h3>@LisaFosmark</h3>
+                        </a>
+                        <a href="https://www.facebook.com/Lisahojfeldtfosmark" target="_blank" id="face">
+                            <img src="social/face_trans_sort.svg" alt="">
+                            <h3>/Lisafosmark</h3>
+                        </a>
+
+                    </div>
+                    <iframe class="sc_player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555975486&color=%23f2ced5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <iframe class="sc_player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555541755&color=%23f2ced5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                </article>
+            </section>
         </section>
     </main>
     <footer>
+        <div id="contact_info">
+            <a class="contact_txt" href="mailto:djlisafosmark@outlook.com">djlisafosmark@outlook.com</a>
+            <a class="contact_txt" href="tel:+4520718412">+45 20 71 84 12</a>
+            <p class="contact_txt">CVR: XXXXXXX</p>
+        </div>
+
         <p>© 2019 lisafosmark.dk</p>
     </footer>
 

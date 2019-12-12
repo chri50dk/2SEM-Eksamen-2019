@@ -49,7 +49,6 @@ section {
     position: relative;
     width: 100vw;
     min-height: 530px;
-    padding-right: 20px;
 }
 
 .headlines {
@@ -301,6 +300,7 @@ header {
 .sc_player {
     position: relative;
     height: 100px;
+    margin-bottom: 10px;
 }
 
 .billede_cover {
@@ -340,7 +340,7 @@ header {
 }
 
 .more_upc {
-    padding-top: 59px;
+    padding-top: 52px;
     font-size: 6rem;
     margin: 0;
     grid-row: 4;
@@ -349,6 +349,8 @@ header {
 
 .venue_h2 {
     grid-row: 5;
+    padding-top: 52px;
+
 }
 
 #past_events {
@@ -474,7 +476,6 @@ header {
 }
 
 /****CONTACT SEKTION****/
-
 #contact h1 {
     margin-top: -55px;
 }
@@ -487,6 +488,48 @@ header {
 
 #contact_wrap h2:nth-child(1) {
     margin-left: 0;
+}
+
+#find_wrap h2:nth-child(1) {
+    margin-left: 0;
+}
+
+#find_wrap {
+    background-color: var(--lightpink);
+    padding: 30px;
+    margin-top: 70px;
+    position: relative;
+    margin-left: 0;
+}
+
+#social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    justify-content: space-around;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#social a {
+    text-decoration: none;
+    color: black;
+}
+
+#face,
+#insta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#social h3 {
+    margin: 0 0 30px 0;
+}
+
+#social img {
+    width: 90px;
 }
 
 .form_heading {
@@ -610,6 +653,10 @@ footer {
         margin-top: -100px;
     }
 
+    .event:nth-child(1) {
+        margin-top: 0;
+    }
+
     #first_event {
         margin-top: 50px;
     }
@@ -621,7 +668,7 @@ footer {
     .more_upc {
         grid-column: 2;
         grid-row: 2;
-        padding-top: 36px;
+        padding-top: 32px;
         font-size: 5rem;
     }
 
@@ -639,7 +686,8 @@ footer {
     .venue_h2 {
         grid-column: 1;
         grid-row: 3;
-        margin-top: -283px;
+        margin-top: -284px;
+        padding-top: 32px;
     }
 
     #about_img {
@@ -669,8 +717,17 @@ footer {
         grid-row: 1;
     }
 
-    #contact_grid {
+    #contact h1 {
+        margin-top: 30px;
+    }
+
+    #contact_wrap h2:nth-child(1) {
+        margin-top: 35px;
+    }
+
+    #contact_section {
         display: grid;
+        grid-gap: 50px;
         grid-template-columns: 1fr 1fr;
     }
 
@@ -681,6 +738,41 @@ footer {
 
     #contact_info {
         margin-left: 20px;
+    }
+
+    #contact_wrap {
+        background-color: var(--green);
+        padding: 30px;
+        margin-top: 70px;
+    }
+
+    #contact_wrap h2:nth-child(1) {
+        margin-left: 0;
+    }
+
+    #find_wrap h2:nth-child(1) {
+        margin-left: 0;
+    }
+
+    #find_wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 435px;
+        margin-top: 200px;
+    }
+
+    #social {
+        width: 100px;
+    }
+
+    #face {
+        margin-left: 10px;
+    }
+
+    #insta {
+        margin-right: 10px;
     }
 
 }
@@ -701,7 +793,7 @@ footer {
     }
 
     .more_upc {
-        padding-top: 27px;
+        padding-top: 23px;
         font-size: 6rem;
     }
 
@@ -709,7 +801,6 @@ footer {
         font-size: 6rem;
         margin-left: 35px;
     }
-
 
     .djschool_wrap {
         display: grid;
@@ -737,8 +828,8 @@ footer {
 
     #djschool_img {
         display: block;
-        width: 55vw;
         height: auto;
+        max-height: 550px;
 
     }
 }
