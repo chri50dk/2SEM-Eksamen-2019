@@ -22,8 +22,6 @@ html {
     font-size: 62.5%;
 }
 
-
-
 h1 {
     color: black;
     font-size: 10rem;
@@ -73,45 +71,136 @@ section {
 /****GENRELLE INDSTILLINGER SLUT****/
 
 /****MENU****/
+nav {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 110;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--bebas);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.menu_links a {
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 5px;
+    transition: background-size .3s;
+    color: var(--logo_pink);
+}
+
+#burger_knap {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 65px;
+    height: 55px;
+    /*    transition: .5s ease-in-out;*/
+    cursor: pointer;
+    background-image: url(assets/white_circle.svg);
+    background-size: 100%;
+    z-index: 130;
+}
+
+#burger_knap div {
+    display: block;
+    position: absolute;
+    height: 8px;
+    width: 50px;
+    background-color: var(--logo_pink);
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+#burger_knap div:nth-child(1) {
+    top: 10px;
+    left: 8px;
+}
+
+#burger_knap div:nth-child(2),
+#burger_knap div:nth-child(3) {
+    top: 23.5px;
+    left: 8px;
+}
+
+#burger_knap div:nth-child(4) {
+    top: 37px;
+    left: 8px;
+}
+
+#burger_knap.open div:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+#burger_knap.open div:nth-child(2) {
+    transform: rotate(45deg);
+    background-color: var(--logo_pink);
+}
+
+#burger_knap.open div:nth-child(3) {
+    transform: rotate(-45deg);
+    background-color: var(--logo_pink);
+}
+
+#burger_knap.open div:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.toggle_menu {
+    transform: translateX(100%);
+}
+
+.button_fly_in {
+    transform: translateX(-100px);
+}
+
+.button_fly_out {
+    transform: translateX(50px);
+}
+
 
 header {
     width: 100vw;
-    height: 130px;
-    position: fixed;
+    height: 90px;
+    position: absolute;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*    background-color: var(--beige);*/
 }
 
 
 #header_logo {
-    width: 200px;
-    height: 100px;
-}
-
-nav {
-    margin-right: 20px;
-    margin: 0;
-    width: 310px;
-}
-
-
-header nav a:last-child {
-    margin-right: 8px;
-}
-
-nav a {
-    text-decoration: none;
-    font-size: 2rem;
-    margin-left: 15px;
-    font-family: var(--bebas);
-    color: white;
-}
-
-nav a:hover {
-    border-bottom: 2px solid white;
+    width: 100px;
+    height: 80px;
+    margin-left: 30px;
 }
 
 /****MENU SLUT****/
@@ -156,17 +245,24 @@ nav a:hover {
     z-index: 20;
     overflow: hidden;
     animation-delay: 1s;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
 #logo {
     width: 80%;
-    position: absolute;
+    /*    position: absolute;*/
 }
 
 .wrapper_loaded {
     transform: translateY(-100vh);
+}
+
+#progress_bar {
+    width: 400px;
+    height: 20px;
+    border: 1px solid;
+    margin-top: 300px;
 }
 
 @keyframes removeLoader {
@@ -202,6 +298,19 @@ nav a:hover {
     width: 100%;
 }
 
+.sc_player {
+    position: relative;
+    height: 100px;
+}
+
+.billede_cover {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100px;
+    background-color: aqua;
+}
+
 /****EVENTS SEKTION****/
 .margin_auto {
     width: calc(100vw - 120px);
@@ -210,7 +319,7 @@ nav a:hover {
 
 #events h1 {
     margin-top: 40px;
-    margin-bottom: -5px;
+    margin-bottom: -45px;
 }
 
 #coming_events {
@@ -331,6 +440,11 @@ nav a:hover {
     background-position: 10%;
 }
 
+#dj_school h1 {
+    margin-top: 10px;
+    z-index: 1;
+}
+
 #dj_school .txt {
     position: absolute;
     width: 80vw;
@@ -347,6 +461,7 @@ nav a:hover {
 
 #dj_school p:nth-child(2) {
     padding-top: 0;
+    padding-bottom: 10px;
 }
 
 #djschool_img {
@@ -361,7 +476,7 @@ nav a:hover {
 /****CONTACT SEKTION****/
 
 #contact h1 {
-    margin-top: -30px;
+    margin-top: -55px;
 }
 
 #contact_wrap {
