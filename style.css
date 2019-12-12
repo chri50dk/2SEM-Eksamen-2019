@@ -298,6 +298,24 @@ header {
     width: 100%;
 }
 
+#video_container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 20px;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
 .sc_player {
     position: relative;
     height: 100px;
@@ -316,6 +334,7 @@ header {
 .margin_auto {
     width: calc(100vw - 120px);
     margin-left: 120px;
+    max-width: 940px;
 }
 
 #events h1 {
@@ -628,7 +647,7 @@ footer {
     }
 
     #about {
-        margin-bottom: 100px;
+        margin-bottom: 120px;
     }
 
     #about h1 {
@@ -638,14 +657,14 @@ footer {
     .about_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        position: relative;
     }
-
 
     #about .txt {
         position: absolute;
         width: 35vw;
-        left: 16%;
-        bottom: 15%;
+        left: 0px;
+        top: 20px;
     }
 
     #about_img {
@@ -797,12 +816,17 @@ footer {
 
 }
 
+@media only screen and (min-width:1130px) {
+    #about .txt {
+        left: 70px;
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     .margin_auto {
         margin: 0 180px 0 300px;
         width: calc(100vw - 500px);
     }
-
 
     #load_more img {
         width: 70px;
@@ -815,7 +839,7 @@ footer {
     #about .txt {
         position: absolute;
         bottom: 40%;
-        left: 50%;
+        left: 48%;
     }
 
     #about_img {
@@ -825,7 +849,6 @@ footer {
         grid-row: 1;
         grid-column: 1;
     }
-
 
     .more_upc {
         padding-top: 23px;
@@ -841,10 +864,6 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-top: 100px;
-    }
-
-    #dj_school .margin_auto {
-        margin-left: 270px;
     }
 
     #dj_school {
