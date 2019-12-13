@@ -130,7 +130,8 @@ async function loadContent(contentToLoad) {
 function showAbout(content) {
     console.log(content);
 
-    document.querySelector("#about p").textContent = content.about_1;
+    document.querySelector("#about h2").textContent = content.about_overskrift;
+    document.querySelector("#about h2 + p").textContent = content.about_1;
     /*  document.querySelector("#about p + p").textContent = content.about_2;*/
 }
 
