@@ -536,11 +536,16 @@ header {
     width: 90%;
     align-self: center;
     opacity: 1;
+    transition: 0.5s ease all;
 }
 
 .cta a {
     text-decoration: none;
     color: black;
+}
+
+.cta:hover {
+    transform: scale(1.03);
 }
 
 /****CONTACT SEKTION****/
