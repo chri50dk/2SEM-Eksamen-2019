@@ -125,7 +125,7 @@ nav {
 #burger_knap div {
     display: block;
     position: absolute;
-    height: 8px;
+    height: 5px;
     width: 50px;
     background-color: var(--logo_pink);
     opacity: 1;
@@ -209,6 +209,8 @@ header {
     width: 100vw;
     height: 100vh;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 /**** SPLASH ****/
@@ -227,6 +229,13 @@ header {
     overflow: hidden;
     min-width: 100%;
     min-height: 100%;
+}
+
+#splash_arrow {
+    position: absolute;
+    bottom: 10px;
+    width: 80px;
+
 }
 
 /****SPLASH SLUT****/
@@ -724,6 +733,10 @@ footer {
 }
 
 @media only screen and (min-width: 840px) {
+    nav {
+        width: 300px;
+    }
+
     .margin_auto {
         margin: 0 100px 0 180px;
         width: calc(100vw - 280px);
