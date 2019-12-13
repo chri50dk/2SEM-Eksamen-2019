@@ -27,19 +27,18 @@ if (!preg_match(
 if( empty($errors))
 {
 	$to = $myemail;
-	$email_subject = "$contact_type besked fra hjemmeside fra: $name";
+	$email_subject = "$contact_type fra hjemmeside fra: $name";
 
-	$email_body = "Ny besked fra: \n\n
+	$email_body = "Ny besked fra:
 
-    $name
-    $email_address
-    $phone
-    $contact_type
-    $business
-    $venue \n
+    Navn: $name
+    E-mail: $email_address
+    Tel: $phone
+    Hvad vil de? $contact_type
+    Navn på virksomhed: $business
+    Venue: $venue
 
     $request \n\n".
-
 
 	$headers = "From: $email_address\n";
 	$headers .= "Reply-To: $email_address";
@@ -55,10 +54,9 @@ if( empty($errors))
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//DA" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="da">
+<html>
 
 <head>
-    <meta charset="utf-8">
     <title>Contact form handler</title>
 </head>
 
