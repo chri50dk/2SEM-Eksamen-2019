@@ -955,7 +955,6 @@ footer {
 
     #dj_school {
         height: 80vh;
-        width: 50vw;
         background-image: none;
     }
 
@@ -963,7 +962,7 @@ footer {
         position: absolute;
         width: 30vw;
         top: 120px;
-        right: -530px;
+        right: 10%;
     }
 
     #djschool_img {
