@@ -685,11 +685,14 @@ input[type="submit"] {
 .footer_wrapper {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer p {
     font-size: 1.3rem;
     color: var(--purple);
+    margin: 0 0 5px 0;
 }
 
 footer a {
@@ -718,8 +721,6 @@ footer {
     .venue_h2 {
         padding-top: 62px;
     }
-
-
 }
 
 @media only screen and (min-width: 840px) {
@@ -898,11 +899,8 @@ footer {
     }
 
     .footer_wrapper {
-        grid-template-columns: 1fr 1fr 1fr;
-        display: flex;
-        justify-content: space-around;
+        flex-direction: row;
     }
-
 }
 
 @media only screen and (min-width:1130px) {

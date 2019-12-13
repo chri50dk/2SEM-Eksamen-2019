@@ -127,23 +127,23 @@
                             <label for="name">
                                 <h3 class="form_heading">NAME</h3>
                             </label>
-                            <input type="text" id="name" name="name" placeholder="NAME">
+                            <input type="text" required id="name" name="name" placeholder="NAME">
 
                             <label for="email">
                                 <h3 class="form_heading">EMAIL</h3>
                             </label>
-                            <input type="text" id="email" name="email" placeholder="E-MAIL">
+                            <input type="text" required id="email" name="email" placeholder="E-MAIL">
 
                             <label for="phone">
                                 <h3 class="form_heading">PHONE</h3>
                             </label>
-                            <input type="text" id="phone" name="phone" placeholder="PHONE">
+                            <input type="text" required id="phone" name="phone" placeholder="PHONE">
 
                             <label for="contact_type">
                                 <h3 class="form_heading">CONTACT TYPE</h3>
                             </label>
                             <div id="select_wrap">
-                                <select name="contact_type" id="contact_type">
+                                <select name="contact_type" required id="contact_type">
                                     <option value="">-</option>
                                     <option value="Booking Request">DJ BOOKING</option>
                                     <option value="Business Inquiry">BUSINESS INQUIRY</option>
@@ -166,7 +166,7 @@
                             <label for="request">
                                 <h3 class="form_heading">REQUEST</h3>
                             </label>
-                            <textarea name="request" id="request" cols="30" rows="10" placeholder="TYPE YOUR REQUEST HERE..."></textarea>
+                            <textarea name="request" required id="request" cols="30" rows="10" placeholder="TYPE YOUR REQUEST HERE..."></textarea>
 
                             <input type="submit" value="SEND">
 
@@ -197,16 +197,11 @@
     <footer>
 
         <div class="footer_wrapper">
-            <div><a href="mailto:djlisafosmark@outlook.com">
-                    <p>djlisafosmark@outlook.com</p>
-                </a></div>
-            <div>
-                <p>© 2019 lisafosmark.dk</p>
-            </div>
-            <div>
-                <p>CVR: 35766820</p>
-            </div>
-
+            <a href="mailto:djlisafosmark@outlook.com">
+                <p>djlisafosmark@outlook.com</p>
+            </a>
+            <p>CVR: 35766820</p>
+            <p>© 2019 lisafosmark.dk</p>
         </div>
     </footer>
 
