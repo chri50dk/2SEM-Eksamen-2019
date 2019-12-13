@@ -34,7 +34,7 @@ if( empty($errors))
     Navn: $name
     E-mail: $email_address
     Tel: $phone
-    Hvad vil de? $contact_type
+    $contact_type
     Navn på virksomhed: $business
     Venue: $venue
 

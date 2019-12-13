@@ -214,7 +214,7 @@ function showVenues(content) {
             klon.querySelector(".event h2 + h2").textContent = day + '/' + month + '/' + year;
             klon.querySelector(".event h2 + h2").style.fontSize = "2rem";
             klon.querySelector(".event h3").textContent = event.title.rendered;
-            klon.querySelector(".event h3").style.fontSize = "3rem";
+            klon.querySelector(".event h3").style.fontSize = "2.8rem";
             klon.querySelector(".event").style.height = "50px";
             klon.querySelector(".event").style.flexDirection = "row";
             klon.querySelector(".event").style.marginTop = "5px";
