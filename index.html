@@ -88,22 +88,6 @@
                 <h2 class="more_upc venue_h2">VENUES PLAYED</h2>
                 <article id="past_events"></article>
             </article>
-
-            <template id="venue_temp">
-                <article class="venue_art">
-                    <h3 class="venue"></h3>
-                </article>
-            </template>
-
-            <template id="upcoming_temp">
-                <article class="event">
-                    <h2 class="venue_headline">UPCOMING</h2>
-                    <h2 class="venue"></h2>
-                    <h3></h3>
-                    <h3></h3>
-                </article>
-            </template>
-
         </section>
 
         <section id="dj_school">
@@ -190,11 +174,11 @@
                     <h2 class="venue_headline">FIND ME</h2>
                     <div id="social">
                         <a href="https://www.instagram.com/lisafosmark/" rel="noopener" target="_blank" id="insta">
-                            <img src="social/insta_trans.svg" alt="">
+                            <div id="insta_img"></div>
                             <h3>@LisaFosmark</h3>
                         </a>
                         <a href="https://www.facebook.com/Lisahojfeldtfosmark" rel="noopener" target="_blank" id="face">
-                            <img src="social/face_trans.svg" alt="">
+                            <div id="face_img"></div>
                             <h3>/Lisafosmark</h3>
                         </a>
 
@@ -216,6 +200,20 @@
         </div>
     </footer>
 
+    <template id="venue_temp">
+        <article class="venue_art">
+            <h3 class="venue"></h3>
+        </article>
+    </template>
+
+    <template id="upcoming_temp">
+        <article class="event">
+            <h2 class="venue_headline">UPCOMING</h2>
+            <h2 class="venue"></h2>
+            <h3></h3>
+            <h3></h3>
+        </article>
+    </template>
 
     <script src="script.js"></script>
 </body>

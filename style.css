@@ -618,13 +618,36 @@ header {
     margin: 0 0 30px 0;
 }
 
-#social img {
+#insta_img {
+    background-image: url(social/insta_trans.svg);
     width: 90px;
+    height: 90px;
+    background-size: 100%;
+    transition: 0.5s ease all;
+}
+
+#face_img {
+    background-image: url(social/face_trans.svg);
+    width: 90px;
+    height: 90px;
+    background-size: 100%;
+    transition: 0.5s ease all;
 }
 
 #social a:hover {
     transform: scale(1.05);
     color: var(--black);
+}
+
+#social a:hover #insta_img {
+    background-image: url(social/insta_trans_sort.svg);
+
+}
+
+
+#social a:hover #face_img {
+    background-image: url(social/face_trans_sort.svg);
+
 }
 
 .form_heading {
