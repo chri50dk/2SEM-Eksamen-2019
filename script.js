@@ -217,7 +217,7 @@ function showVenues(content) {
             klon.querySelector(".event h2 + h2").textContent = day + '/' + month + '/' + year;
             klon.querySelector(".event h2 + h2").style.fontSize = "2rem";
             klon.querySelector(".event h3").textContent = event.title.rendered;
-            klon.querySelector(".event h3").style.fontSize = "2.8rem";
+            klon.querySelector(".event h3").style.fontSize = "2.2rem";
             klon.querySelector(".event").style.height = "50px";
             klon.querySelector(".event").style.flexDirection = "row";
             klon.querySelector(".event").style.marginTop = "5px";
@@ -231,10 +231,12 @@ function showVenues(content) {
                 klon.querySelector(".event").style.marginTop = "0";
             }
 
+            if (window.innerWidth > 430) {
+                klon.querySelector(".event h3").style.fontSize = "2.8rem";
+            }
+
             destComingScroll.append(klon);
         }
-
-
     })
 
     //Her kalder vi funktionen removeDup, for at fjerne duplikerede spillesteder
