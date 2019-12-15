@@ -45,9 +45,13 @@ h2 {
     text-align: center;
 }
 
+figure {
+    margin: 0;
+    align-self: center;
+}
+
 img {
     max-width: 400px;
-    align-self: center;
     margin-top: 30px;
 }
 

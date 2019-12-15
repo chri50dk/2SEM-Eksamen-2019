@@ -23,7 +23,9 @@
 
 <body>
     <header>
-        <img id="header_logo" src="img/logo_pink.svg" alt="">
+        <figure>
+            <img id="header_logo" src="img/logo_pink.svg" alt="lisa fosmark logo">
+        </figure>
         <div id="burger_knap">
             <div></div>
             <div></div>
@@ -43,8 +45,9 @@
 
     <section id="splash">
         <div id="loader">
-            <img id="logo" src="img/logo_pink.svg" alt="logo loader">
-
+            <figure id="logo">
+                <img src="img/logo_pink.svg" alt="lisa fosmark loader logo">
+            </figure>
             <div id="progress_bar">
                 <div id="progress"></div>
             </div>
@@ -53,9 +56,7 @@
 
         <div class="fullscreen-bg">
             <video loop muted autoplay poster="" class="fullscreen-bg__video">
-
                 <source src="video/splash.mp4" type="video/mp4">
-
             </video>
         </div>
         <a id="splash_arrow" href="#about"><img src="img/arrow_down_pink.svg" alt=""></a>
@@ -73,8 +74,9 @@
                         <iframe title="video for koga center københavn" id="video" src="https://www.youtube.com/embed/73Xha0_Isdg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-
-                <img src="img/lisa4.png" id="about_img" alt="billede af lisa">
+                <figure id="about_img">
+                    <img src="img/lisa4.png" alt="lisa fosmark dj'er">
+                </figure>
             </article>
 
 
@@ -84,9 +86,9 @@
             <h1 class="headlines">EVENTS</h1>
             <article class="load_more_off margin_auto" id="coming_events">
                 <h2 class="more_upc">MORE UPCOMING</h2>
-                <article id="coming_events_scroll"></article>
+                <article id="coming_events_scroll" class="scrollbar"></article>
                 <h2 class="more_upc venue_h2">VENUES PLAYED</h2>
-                <article id="past_events"></article>
+                <article id="past_events" class="scrollbar"></article>
             </article>
         </section>
 
@@ -103,7 +105,9 @@
                         </a>
                     </button>
                 </div>
-                <img src="img/lisa2.png" id="djschool_img" alt="billede af lisa">
+                <figure>
+                    <img src="img/lisa2.png" id="djschool_img" alt="billede af lisa">
+                </figure>
             </article>
         </section>
 
@@ -216,6 +220,4 @@
     </template>
 
     <script src="script.js"></script>
-</body>
-
-</html>
+</body></html>

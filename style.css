@@ -51,6 +51,10 @@ section {
     min-height: 530px;
 }
 
+figure {
+    margin: 0;
+}
+
 .headlines {
     color: #d9adc3;
     font-size: 10rem;
@@ -257,10 +261,13 @@ header {
     animation-fill-mode: forwards;
 }
 
+#logo img {
+    width: 100%;
+}
+
 #logo {
-    width: 80%;
     max-width: 400px;
-    /*    position: absolute;*/
+    align-self: center;
 }
 
 .wrapper_loaded {
@@ -320,7 +327,7 @@ header {
     color: #050c0d;
 }
 
-#about_img {
+#about_img img {
     width: 100%;
 }
 
@@ -379,6 +386,7 @@ header {
     max-height: 300px;
     /*    background-color: var(--yellow);*/
     overflow: scroll;
+    overflow-x: hidden;
     margin-top: 115px;
     position: relative;
     grid-row: 4;
@@ -404,10 +412,27 @@ header {
     max-height: 300px;
     /*    background-color: var(--yellow);*/
     overflow: scroll;
+    overflow-x: hidden;
     margin-top: 115px;
     position: relative;
     grid-row: 5;
     grid-column: 1;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 1em;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background-color: var(--lightpink);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--pink);
+}
+
+#first_event_scroll {
+    margin-top: 0;
 }
 
 #past_events h2 {
@@ -439,6 +464,10 @@ header {
     align-content: center;
     align-items: center;
     margin-top: 5px;
+}
+
+.venue_art:nth-child(1) {
+    margin-top: 0;
 }
 
 .venue_art h3 {
@@ -792,6 +821,11 @@ footer {
         width: auto;
         grid-row: 1;
         grid-column: 2;
+    }
+
+    #about_img img {
+        height: 100%;
+        width: auto;
     }
 
     #events {
