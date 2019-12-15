@@ -86,6 +86,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 15;
 }
 
 .menu_links {
@@ -188,17 +189,31 @@ nav {
     transform: translateX(50px);
 }
 
+.menu_overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.overlay_on_off {
+    opacity: 0.35;
+}
 
 header {
     width: 100vw;
     height: 90px;
     position: absolute;
-    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 11;
 }
-
 
 #header_logo {
     width: 100px;
@@ -238,8 +253,7 @@ header {
 #splash_arrow {
     position: absolute;
     bottom: 10px;
-    width: 80px;
-
+    width: 60px;
 }
 
 /****SPLASH SLUT****/
@@ -305,7 +319,7 @@ header {
 /**** ABOUT SEKTION ****/
 
 #about {
-    margin-top: 40px;
+    padding-top: 40px;
 }
 
 #about h1 {
@@ -595,6 +609,10 @@ header {
 }
 
 /****CONTACT SEKTION****/
+#contact {
+    padding-top: 80px;
+}
+
 #contact h1 {
     margin-top: -55px;
 }
@@ -602,7 +620,7 @@ header {
 #contact_wrap {
     background-color: var(--green);
     padding: 30px;
-    margin-top: 70px;
+    margin-top: -30px;
 }
 
 #contact_wrap h2:nth-child(1) {

@@ -256,13 +256,13 @@ function showVenues(content) {
     })
 }
 
-
 function openMenu() {
     console.log("openMenu");
 
     burgerKnap.classList.toggle("open");
 
     document.querySelector("#menu").classList.toggle("toggle_menu");
+    document.querySelector(".menu_overlay").classList.toggle("overlay_on_off");
 
     let links = document.querySelectorAll(".menu_links a");
 
@@ -275,4 +275,5 @@ function toggleMenu() {
     console.log("toggleMenu");
     burgerKnap.classList.toggle("open");
     document.querySelector("#menu").classList.toggle("toggle_menu");
+    document.querySelector(".menu_overlay").classList.toggle("overlay_on_off");
 }
