@@ -367,6 +367,8 @@ header {
     position: relative;
     height: 100px;
     margin-bottom: 10px;
+    border: none;
+    width: 100%;
 }
 
 .billede_cover {
@@ -587,20 +589,14 @@ header {
 }
 
 .cta {
-    padding: 0;
-    -webkit-appearance: none;
-    border: none;
+    padding: 30px;
     background-color: rgba(181, 126, 154, 0.26);
     font-size: 2rem;
     font-family: var(--bebas);
-    cursor: pointer;
     width: 90%;
     align-self: center;
-    opacity: 1;
     transition: 0.5s ease all;
-}
-
-.cta a {
+    text-align: center;
     text-decoration: none;
     color: black;
 }
@@ -620,8 +616,10 @@ header {
 
 #contact_wrap {
     background-color: var(--green);
-    padding: 30px;
+    padding: 50px 30px 10px 30px;
     margin-top: -30px;
+    padding-top: 50px;
+
 }
 
 #contact_wrap h2:nth-child(1) {
@@ -701,6 +699,8 @@ header {
 .form_heading {
     font-size: 3rem;
     margin-bottom: 0;
+    font-family: var(--bebas);
+    margin-top: 10px;
 }
 
 #contact_form input {
@@ -711,6 +711,7 @@ header {
     border: none;
     padding-left: 10px;
     background-color: white;
+    margin-bottom: 20px;
 }
 
 #request,
@@ -720,6 +721,11 @@ header {
     font-size: 1.5rem;
     border: none;
     padding: 10px;
+    margin-bottom: 20px;
+}
+
+#request {
+    margin-bottom: 0;
 }
 
 #contact_type {
