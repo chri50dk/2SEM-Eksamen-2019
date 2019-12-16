@@ -11,6 +11,7 @@
     --green: #add9d9;
     --beige: #f5f1ee;
     --logo_pink: #DE8394;
+    --black: #050c0d;
 }
 
 body {
@@ -441,11 +442,11 @@ header {
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    background-color: var(--lightpink);
+    background-color: rgba(173, 217, 217, 0.6);
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    background-color: var(--pink);
+    background-color: rgba(5, 12, 13, 0.88);
 }
 
 #first_event_scroll {
@@ -605,6 +606,8 @@ header {
     transform: scale(1.03);
 }
 
+/****DJ SCHOOL SLUT****/
+
 /****CONTACT SEKTION****/
 #contact {
     padding-top: 80px;
@@ -681,7 +684,7 @@ header {
 }
 
 #social a:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     color: var(--black);
 }
 
