@@ -1,21 +1,21 @@
+//Her definerer vi globale variabler, som vi kan snakke til i hele scriptet
 let result = [];
 let pastEvents = [];
-let venuesPlayedSet;
 let venuesPlayed = [];
-let eventCount;
 let comingEventCount;
 let burgerKnap = document.querySelector("#burger_knap");
+let loadIterator = 0;
 
 //Nedenstående kode bruger vi til at få dagens dato, som vi bruger senere i scriptet.
-var today = new Date();
-var todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-var todayDateFormat = new Date(todayDate).getTime();
+let today = new Date();
+let todayDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+let todayDateFormat = new Date(todayDate).getTime();
 
-//Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const venueUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/venue?per_page=100";
 const aboutUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/about/58";
 const djschoolUrl = "https://viktorkjeldal.dk/kea/2sem/eksamen/wordpress/wp-json/wp/v2/djschool/74";
 
+//Nedenstående er det dynamiske array, som bliver brugt i funktionen loadContent(). I arrayet definerer vi URL'en fra WP, og hvilken funktion der skal kaldes.
 const loadArray = [{
     theUrl: aboutUrl,
     theFunction: showAbout
@@ -27,30 +27,17 @@ const loadArray = [{
     theFunction: showDjschool
 }];
 
-let loadIterator = 0;
-
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
+    //I vores start funktion kalder vi forskellige funktioner, og gør vores burgermenu klikbar, så den kan åbnes.
+    contactType();
     loader();
-
-    burgerKnap.addEventListener("click", openMenu);
 
     //Vi kalder loadContent() med loadArray som parameter. Vi bruger [loadIterator], for at få plads nummer 0 i arrayet først. Når funktionen er kørt igennem, bruger vi loadIterator++, så vi kan køre funktionen med næste plads i arrayet. På den måde kører vi funktionen X antal gange (X = længde på array), med hvert objekt i arrayet.
     loadContent(loadArray[loadIterator]);
-    contactType();
 
-    //Vi lytter på hele vinduets scroll, og ser efter hvornår vi scroller ned til vores headline. Når toppen af skærmen rammer toppen af headlinen, får den position: sticky; som gør at den "klistrer" til skærmens top. Når vi så rammer næste headline, er det den der bliver sticky.
-    window.addEventListener("scroll", () => {
-        let elementTarget = document.querySelectorAll(".headlines");
-
-        elementTarget.forEach(headline => {
-            if (window.scrollY - window.innerHeight > headline.offsetTop) {
-                console.log("SCROLL PAST");
-                headline.style.position = "sticky";
-            }
-        });
-    })
+    burgerKnap.addEventListener("click", openMenu);
 }
 
 function contactType() {
@@ -58,6 +45,7 @@ function contactType() {
     let businessField = document.querySelector("#business_field");
     let venueField = document.querySelector("#venue_field");
 
+    //I denne funktion lytter vi til hvilken valgmulighed der bliver valgt i vores kontaktformular. Hvis der bliver valgt en ting, skal der ske en ting, og hvis der bliver valgt en anden, skal der ske noget andet.
     contactType.addEventListener("change", () => {
         if (contactType.value === "Booking Request") {
             console.log("BOOKING");
@@ -79,28 +67,28 @@ function contactType() {
     })
 }
 
-let loaderScreen = document.querySelector("#loader");
-let main = document.querySelector("main");
-let footer = document.querySelector("footer");
-
-let progress = document.querySelector("#progress");
-
+//Globale variabler, som vi bruger i loader() funktionen.
+//timer variablen er et interval, som betyder at den kalder funktionen loader() hver 5. millisekund.
 let width = 0;
-
 let timer = setInterval(loader, 5);
 
 function loader() {
-    width = width + 0.2;
+    let loaderScreen = document.querySelector("#loader");
+    let progress = document.querySelector("#progress");
+    let main = document.querySelector("main");
+    let footer = document.querySelector("footer");
 
-    main.style.display = "none";
-    footer.style.display = "none";
+    //Hver gang funktionen bliver kaldt, hver 5. millisekund, bliver width variablen tilføjet 0.2. Loaderen er altså ikke en rigtig loader, da den altid vil være loadet efter 2.5 sekunder, men man får fornemmelsen af det.
+    width = width + 0.2;
 
     progress.style.width = width + "%";
 
+    //Når width rammer 100 bliver if sætningen true, og den bliver kørt - preloaderen forsvinder og sidens indhold kommer til syne.
     if (width > 100) {
-        console.log("100");
+        //        console.log("LOAD DONE");
         clearInterval(timer);
         loaderScreen.style.animationName = "removeLoader";
+
         loaderScreen.addEventListener("animationend", () => {
             main.style.display = "block";
             footer.style.display = "block";
@@ -108,12 +96,12 @@ function loader() {
     }
 }
 
-//I denne funktion loader vi alt JSON data fra WordPress i en asynkron funktion,
-//og kalder den valgte funktionen (i arrayet), med indholdet som parameter.
+//I denne funktion henter vi alt JSON data fra WordPress i en asynkron funktion, og kalder den valgte funktionen (i arrayet), med indholdet som parameter.
 async function loadContent(contentToLoad) {
+    let content;
+
     //Vi henter dataen fra filen som er defineret i variablen theUrl.
     let jsonData = await fetch(contentToLoad.theUrl);
-    let content;
 
     //Vi siger at den hentede data skal tolkes som JSON format.
     content = await jsonData.json();
@@ -128,31 +116,28 @@ async function loadContent(contentToLoad) {
 }
 
 function showAbout(content) {
-    console.log(content);
-
+    //Her bruger vi indholdet som vi lige har hentet fra JSON, og skriver det ud i DOM'en det valgte sted.
     document.querySelector("#about h2").textContent = content.about_overskrift;
     document.querySelector("#about h2 + p").textContent = content.about_1;
-    /*  document.querySelector("#about p + p").textContent = content.about_2;*/
 }
 
 function showDjschool(content) {
-    console.log(content);
-
+    //Her bruger vi indholdet som vi lige har hentet fra JSON, og skriver det ud i DOM'en det valgte sted.
     document.querySelector("#dj_school h2").textContent = content.djschool_overskrift;
     document.querySelector("#dj_school p").textContent = content.djschool_1;
     document.querySelector("#dj_school p + p").textContent = content.djschool_2;
 }
 
-
 function showVenues(content) {
+    console.log("Venue indhold direkte fra JSON:")
     console.log(content);
 
-    eventCount = 0;
     comingEventCount = 0;
 
     //Her definerer vi vores templates og destinationer
     const upcomingTemp = document.querySelector("#upcoming_temp");
     const venueTemp = document.querySelector("#venue_temp");
+
     const destComing = document.querySelector("#coming_events");
     const destComingScroll = document.querySelector("#coming_events_scroll");
     const destPast = document.querySelector("#past_events");
@@ -166,18 +151,16 @@ function showVenues(content) {
         }
     })
 
-    console.log(content);
-
-    //Her køres hvert event igennem forEach loopet, som viser dem i DOM'en.
+    //Her køres hvert objekt i arrayet igennem forEach loopet, som viser dem i DOM'en.
     content.forEach(event => {
-        eventCount++;
+        //Her laver vi en klon, som er lig med vores template, som vi bruger til at skrive hvert event ud i.
         const klon = upcomingTemp.cloneNode(true).content;
 
-        //Her skrives navnet på venuet og tidspunktet ind i templaten
+        //Her skrives navnet på venuet og tidspunktet ind i templaten.
         klon.querySelector(".event h2 + h2").textContent = event.title.rendered;
         klon.querySelector(".event h3 + h3").textContent = event.start_time + " - " + event.end_time;
 
-        //Her formaterer vi datoen, så vi kan skrive den i dd/mm/yyyy i stedet for yyyy-mm-dd
+        //Når vi får datoen fra WP Rest API får vi den i formatet yyyy-mm-dd. For at kunne skrive den i formatet dd/mm/yyyy skal vi "skille den ad", i år, måned og dag. Derfor kører vi funktionen formatDate med eventets dato som parameter.
         let datePart, year, month, day;
         formatDate(event.dato);
 
@@ -194,22 +177,20 @@ function showVenues(content) {
 
         //Her laver vi datoen om med getTime() funktionen, som giver os tiden mellem den 1. januar 1970 kl. 00:00 og den dato vi vælger, i millisekunder. Derved kan vi sammenligne eventets dato med dagens dato, og pushe de gamle events ind i sit eget array.
         let eventDate = new Date(event.dato).getTime();
-        //Her indsætter vi alle gamle events i et array der hedder pastEvents.
-        //For at få de 3 første events ud som de highlightede events, bruger vi en variable til at holde styr på det
+
+        //Her indsætter vi titlen på alle gamle events i et array der hedder pastEvents.
+        //For at få de 3 første events ud som de highlightede events, bruger vi variblen comingEventCount til at holde styr på det
         //De 3 første events bliver skrevet ud i destComing.
-
         if (todayDateFormat > eventDate) {
-
-            pastEvents.push(event.title.rendered);
+            pastEvents.push(event.title.rendered.toLowerCase());
         } else if (comingEventCount < 3) {
-
             comingEventCount++;
             if (comingEventCount === 1) {
                 klon.querySelector(".event").id = "first_event";
             }
 
+            //De 3 første bliver skrevet ud i destComing destinationen.
             destComing.appendChild(klon);
-
         } else {
             comingEventCount++;
 
@@ -227,14 +208,17 @@ function showVenues(content) {
             klon.querySelector(".event h3").style.marginLeft = "15px";
             klon.querySelector(".venue_headline").textContent = "";
 
+            //Det første event i destComingScroll skal ikke have margin i toppen, den fjerner vi her.
             if (comingEventCount === 4) {
                 klon.querySelector(".event").style.marginTop = "0";
             }
 
+            //Her lytter vi på om bredden på vinduet er over 430px, og så laver vi skriftstørrelsen større. Det er en media query i javascript.
             if (window.innerWidth > 430) {
                 klon.querySelector(".event h3").style.fontSize = "2.8rem";
             }
 
+            //Til sidst bliver de skrevet ud i den rette destination.
             destComingScroll.append(klon);
         }
     })
@@ -250,31 +234,42 @@ function showVenues(content) {
         });
     }
 
+    console.log(venuesPlayed);
+
     //Det nye array med alle de unikke spillesteder bliver kørt igennem et forEach loop, og skrevet ud i destPast
     venuesPlayed.forEach(venuePlayed => {
         const klon = venueTemp.cloneNode(true).content;
-        klon.querySelector(".venue_art h3").textContent = venuePlayed;
+
+        //Her tilføjer vi (RESIDENT) på de steder hvor Lisa er resident DJ
+        if (venuePlayed === "rust" || venuePlayed === "mau mau 5" || venuePlayed === "medusa" || venuePlayed === "kimia") {
+            klon.querySelector(".venue_art h3").textContent = venuePlayed + " (RESIDENT)";
+        } else {
+            klon.querySelector(".venue_art h3").textContent = venuePlayed;
+        }
+
         destPast.appendChild(klon);
     })
 }
 
 function openMenu() {
+    //Hver gang der klikkes på burgerKnap bliver denne funktion kaldt.
     console.log("openMenu");
 
+    //Knappen, selve menuen og overlayet toggler de klasser der viser dem og skjuler dem. Toggle betyder, at hvis klassen allerede er på, fjerner den den, og hvis den ikke er på, tilføjer den den.
     burgerKnap.classList.toggle("open");
-
     document.querySelector("#menu").classList.toggle("toggle_menu");
     document.querySelector(".menu_overlay").classList.toggle("overlay_on_off");
 
     let links = document.querySelectorAll(".menu_links a");
 
+    //Da det er en one-pager, bliver vi nødt til at lytte på hvert link, efter et tryk. Så når man løfter musen eller fingeren fra et link, bliver funktionen toggleMenu kaldt, hvilket lukker menuen.
     links.forEach(link => {
         link.addEventListener("mouseup", toggleMenu);
+        link.addEventListener("touchend", toggleMenu);
     })
 }
 
 function toggleMenu() {
-    console.log("toggleMenu");
     burgerKnap.classList.toggle("open");
     document.querySelector("#menu").classList.toggle("toggle_menu");
     document.querySelector(".menu_overlay").classList.toggle("overlay_on_off");
