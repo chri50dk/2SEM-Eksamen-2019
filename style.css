@@ -10,7 +10,6 @@
     --pink: #d9adc3;
     --green: #add9d9;
     --beige: #f5f1ee;
-    --logo_pink: #DE8394;
     --black: #050c0d;
 }
 
@@ -116,7 +115,7 @@ nav {
     background-repeat: no-repeat;
     background-size: 0% 5px;
     transition: background-size .3s;
-    color: var(--logo_pink);
+    color: var(--pink);
 }
 
 #burger_knap {
@@ -137,7 +136,7 @@ nav {
     position: absolute;
     height: 5px;
     width: 50px;
-    background-color: var(--logo_pink);
+    background-color: var(--pink);
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
@@ -168,12 +167,12 @@ nav {
 
 #burger_knap.open div:nth-child(2) {
     transform: rotate(45deg);
-    background-color: var(--logo_pink);
+    background-color: var(--pink);
 }
 
 #burger_knap.open div:nth-child(3) {
     transform: rotate(-45deg);
-    background-color: var(--logo_pink);
+    background-color: var(--pink);
 }
 
 #burger_knap.open div:nth-child(4) {
@@ -237,7 +236,6 @@ header {
     justify-content: center;
 }
 
-/**** SPLASH ****/
 .fullscreen-bg {
     position: absolute;
     top: 0;
@@ -285,6 +283,7 @@ header {
 }
 
 #logo {
+    width: 80%;
     max-width: 400px;
     align-self: center;
 }
@@ -780,12 +779,12 @@ input[type="submit"] {
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
+    background-color: var(--purple);
 }
 
 footer p {
     font-size: 1.3rem;
-    color: var(--purple);
-    margin: 0 0 5px 0;
+    color: #fbfbfb;
 }
 
 footer a {
@@ -800,6 +799,7 @@ footer {
     bottom: 0;
     margin-top: 20px;
     display: none;
+    margin-top: 30px;
 }
 
 /****FOOTER SLUT****/
@@ -989,7 +989,6 @@ footer {
         align-items: center;
         height: 435px;
         margin-top: 200px;
-
     }
 
     #social {
@@ -1076,6 +1075,5 @@ footer {
         display: block;
         height: auto;
         max-height: 550px;
-
     }
 }

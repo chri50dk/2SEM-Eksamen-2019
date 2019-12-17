@@ -46,12 +46,14 @@ h2 {
 }
 
 figure {
+    width: 100%;
+    max-width: 400px;
     margin: 0;
     align-self: center;
 }
 
 img {
-    max-width: 400px;
+    width: 100%;
     margin-top: 30px;
 }
 
@@ -69,17 +71,12 @@ a {
 }
 
 @media only screen and (max-width:430px) {
-
-    img {
+    figure {
         max-width: 350px;
-        margin-top: 30px;
     }
 
     h1 {
-
         font-size: 5rem;
-
-
     }
 
 }
