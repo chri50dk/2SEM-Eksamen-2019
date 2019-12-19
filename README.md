@@ -1,2 +1,4 @@
 # 2. Semester eksamen - Lisa Fosmark
-Hej
+Gruppe 2 KEA
+
+Link til website: https://viktorkjeldal.dk/lisafosmark/
