@@ -79,7 +79,7 @@ function loader() {
     let footer = document.querySelector("footer");
 
     //Hver gang funktionen bliver kaldt, hver 5. millisekund, bliver width variablen tilføjet 0.2. Loaderen er altså ikke en rigtig loader, da den altid vil være loadet efter 2.5 sekunder, men man får fornemmelsen af det.
-    width = width + 0.2;
+    width = width + 0.23;
 
     progress.style.width = width + "%";
 
@@ -265,11 +265,11 @@ function openMenu() {
     //Da det er en one-pager, bliver vi nødt til at lytte på hvert link, efter et tryk. Så når man løfter musen eller fingeren fra et link, bliver funktionen toggleMenu kaldt, hvilket lukker menuen.
     links.forEach(link => {
         link.addEventListener("mouseup", toggleMenu);
-        link.addEventListener("touchend", toggleMenu);
     })
 }
 
 function toggleMenu() {
+    console.log("toggleMenu");
     burgerKnap.classList.toggle("open");
     document.querySelector("#menu").classList.toggle("toggle_menu");
     document.querySelector(".menu_overlay").classList.toggle("overlay_on_off");

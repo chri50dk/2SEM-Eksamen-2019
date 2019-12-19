@@ -246,8 +246,8 @@ header {
 
 .fullscreen-bg__video {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: -50px;
+    left: -400px;
     overflow: hidden;
     min-width: 100%;
     min-height: 100%;
@@ -273,9 +273,10 @@ header {
     flex-direction: column;
     z-index: 20;
     overflow: hidden;
-    animation-delay: 0.5s;
-    animation-duration: 2s;
+    animation-delay: 0.3s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 }
 
 #logo img {
@@ -819,6 +820,10 @@ footer {
 @media only screen and (min-width: 840px) {
     nav {
         width: 300px;
+    }
+
+    .fullscreen-bg__video {
+        left: -100px;
     }
 
     .margin_auto {
