@@ -823,7 +823,7 @@ footer {
     }
 
     .fullscreen-bg__video {
-        left: -100px;
+        left: 0px;
     }
 
     .margin_auto {
